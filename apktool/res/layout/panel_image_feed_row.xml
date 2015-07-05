@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center|left" android:padding="?baseGapSize" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellSquareStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/feed_header" layout="@layout/feed_entry_header" />
+    <TextView android:textAppearance="@style/SubtitleText" android:gravity="center" android:id="@id/location_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/feed_header" />
+    <LinearLayout android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?smallGapSize" android:layout_below="@id/location_title">
+        <com.yelp.android.ui.widgets.WebImageView android:id="@id/image_1" android:focusable="true" android:clickable="true" android:layout_width="@dimen/std_thumb" android:layout_height="@dimen/std_thumb" />
+        <com.yelp.android.ui.widgets.WebImageView android:id="@id/image_2" android:focusable="true" android:clickable="true" android:layout_width="@dimen/std_thumb" android:layout_height="@dimen/std_thumb" android:layout_marginLeft="?largeGapSize" />
+        <com.yelp.android.ui.widgets.WebImageView android:id="@id/image_3" android:focusable="true" android:clickable="true" android:layout_width="@dimen/std_thumb" android:layout_height="@dimen/std_thumb" android:layout_marginLeft="?largeGapSize" />
+    </LinearLayout>
+</RelativeLayout>

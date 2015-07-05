@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/popup_notification" android:background="?notificationBackground" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/border" android:background="@color/transparent_gray" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignParentTop="true" />
+    <Button android:id="@id/yeah_button" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:text="@string/alright_lets_go" android:layout_alignParentBottom="true" />
+    <include layout="@layout/activity_popup_content" />
+    <com.yelp.android.ui.panels.PanelLoading android:layout_gravity="center" android:id="@id/loading_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</RelativeLayout>

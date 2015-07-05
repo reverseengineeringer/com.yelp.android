@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/activity_login_initialfocusdummy" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <ScrollView android:id="@id/activity_login_scroll" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/activity_login_scrollContent" android:paddingLeft="?largeGapSize" android:paddingTop="?largeGapSize" android:paddingRight="?largeGapSize" android:paddingBottom="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textAppearance="@style/HeadlineText" android:id="@id/activity_login_reason" android:paddingBottom="?largeGapSize" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <EditText android:id="@id/activity_login_editUsername" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/email_address" android:scrollHorizontally="true" android:layout_weight="1.0" android:inputType="textEmailAddress" android:imeOptions="actionNext|flagNoExtractUi" />
+            <EditText android:id="@id/activity_login_editPassword" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?largeGapSize" android:hint="@string/password" android:scrollHorizontally="true" android:layout_weight="1.0" android:inputType="textPassword" android:imeOptions="actionDone|flagNoExtractUi" />
+            <LinearLayout android:gravity="right" android:paddingTop="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <Button android:id="@id/activity_login_btnLogin" android:paddingLeft="20.0dip" android:paddingTop="?baseGapSize" android:paddingRight="20.0dip" android:paddingBottom="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/login" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/activity_login_llCreateAccount" android:paddingLeft="?leftGapSize" android:paddingTop="?largeGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textAppearance="@style/StandardDarkText" android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/login_create_account_question" />
+                <LinearLayout android:orientation="vertical" android:paddingLeft="?leftGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <Button android:id="@id/activity_login_btnSignUp" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sign_up" />
+                    <TextView android:textAppearance="@style/SmallText" android:paddingTop="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/after_signup_you_can" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

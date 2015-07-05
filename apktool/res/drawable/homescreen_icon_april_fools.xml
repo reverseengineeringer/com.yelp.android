@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:gravity="center" android:src="@drawable/april_fools_logo"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

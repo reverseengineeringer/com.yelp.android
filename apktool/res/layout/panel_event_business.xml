@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/business_photo" android:layout_width="?passportUserPhotoSize" android:layout_height="?passportUserPhotoSize" android:layout_marginTop="?smallGapSize" android:layout_marginRight="?baseGapSize" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/business_disclosure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+    <TextView android:textAppearance="@style/SubtitleDarkText" android:ellipsize="end" android:id="@id/business_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip" android:singleLine="true" android:includeFontPadding="false" android:layout_toLeftOf="@id/business_disclosure" android:layout_toRightOf="@id/business_photo" android:layout_alignTop="@id/photo" />
+    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_vertical" android:id="@id/business_rating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:singleLine="true" android:includeFontPadding="false" android:drawableLeft="@drawable/business_stars" android:drawablePadding="?smallGapSize" android:layout_toLeftOf="@id/business_disclosure" android:layout_below="@id/business_name" android:layout_alignLeft="@id/business_name" />
+</merge>

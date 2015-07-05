@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/edit_business_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/closed_business_cell" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?cellButtonStyle">
+            <CheckBox android:id="@id/closed_check" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+            <TextView android:textAppearance="@style/SubtitleText" android:gravity="center_vertical" android:id="@id/closed_title_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="?smallGapSize" android:text="@string/permanently_closed" android:layout_toLeftOf="@id/closed_check" android:layout_alignParentLeft="true" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/removable_panel" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_name" yelp:label="@string/name" style="?cellButtonStyle" />
+            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_address" yelp:setIcon="@drawable/add_business_address_icon" yelp:label="@string/address_and_map_location" style="?cellButtonStyle" />
+            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_categories" yelp:emptyText="@string/add_categories" yelp:label="@string/categories" style="?cellButtonStyle" />
+            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_open_hours" yelp:attachmentIcon="@drawable/photo_icon" yelp:emptyText="@string/add_hours" yelp:label="@string/hours" style="?cellButtonStyle" />
+            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_phone_number" yelp:emptyText="@string/add_phone" yelp:label="@string/phone" style="?cellButtonStyle" />
+            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_website" yelp:emptyText="@string/add_website" yelp:label="@string/website" style="?cellButtonStyle" />
+            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_menu_url" android:visibility="gone" yelp:emptyIcon="@drawable/icon_green_plus_sign" yelp:emptyText="@string/add_menu_url" yelp:label="@string/menu_url" style="?cellButtonStyle" />
+        </LinearLayout>
+        <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/notes" yelp:emptyText="@string/notes_for_the_yelp_team" yelp:label="@string/notes" style="?cellButtonStyle" />
+    </LinearLayout>
+</ScrollView>

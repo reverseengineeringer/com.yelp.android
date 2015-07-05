@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/top_cell_parent" android:background="@drawable/selector_list_cell_gray" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="@style/StandardLightText" android:id="@id/time_ago" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <include layout="@layout/panel_passport_short" />
+    <TextView android:textAppearance="@style/LargeDarkText" android:id="@id/topic_title" android:paddingTop="?smallGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/user_photo" />
+    <TextView android:textAppearance="@style/LargeText" android:id="@id/comment_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/topic_title" />
+    <Button android:textAppearance="@style/StandardDarkText" android:id="@id/read_more_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/talk_read_more_button_height" android:layout_marginTop="?baseGapSize" android:layout_marginBottom="?smallGapSize" android:text="@string/read_more" android:layout_below="@id/comment_text" />
+</RelativeLayout>

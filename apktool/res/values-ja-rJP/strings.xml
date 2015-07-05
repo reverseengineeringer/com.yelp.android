@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mobile_host">m.yelp.co.jp</string>
+    <string name="site_name">Yelp.co.jp</string>
+    <string name="www_host">www.yelp.co.jp</string>
+</resources>

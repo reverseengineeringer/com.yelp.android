@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false" android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <item android:state_pressed="true" yelp:state_left="true">
+        <layer-list android:opacity="translucent">
+            <item android:right="@dimen/border">
+                <shape>
+                    <corners android:topLeftRadius="@dimen/corner_radius" android:topRightRadius="0.0dip" android:bottomLeftRadius="@dimen/left_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/left_button_bottom_right_radius_corner" />
+                    <solid android:color="@color/gray_stroke" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item yelp:state_left="true">
+        <layer-list android:opacity="translucent">
+            <item android:right="@dimen/border">
+                <shape>
+                    <corners android:topLeftRadius="@dimen/corner_radius" android:topRightRadius="0.0dip" android:bottomLeftRadius="@dimen/left_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/left_button_bottom_right_radius_corner" />
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_pressed="true" yelp:state_right="true">
+        <shape>
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="@dimen/corner_radius" android:bottomLeftRadius="@dimen/right_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/right_button_bottom_right_radius_corner" />
+            <solid android:color="@color/gray_stroke" />
+        </shape>
+    </item>
+    <item yelp:state_right="true">
+        <shape>
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="@dimen/corner_radius" android:bottomLeftRadius="@dimen/right_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/right_button_bottom_right_radius_corner" />
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+    <item android:state_pressed="true" yelp:state_middle="true">
+        <layer-list android:opacity="translucent">
+            <item android:right="@dimen/border">
+                <shape>
+                    <solid android:color="@color/gray_stroke" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item yelp:state_middle="true">
+        <layer-list android:opacity="translucent">
+            <item android:right="@dimen/border">
+                <shape>
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <corners android:radius="@dimen/corner_radius" />
+                    <stroke android:width="1.0dip" android:color="@color/red" />
+                    <padding android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="@dimen/corner_radius" />
+                    <solid android:color="@color/gray_stroke" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <corners android:radius="@dimen/corner_radius" />
+                    <stroke android:width="1.0dip" android:color="@color/red" />
+                    <padding android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <corners android:radius="@dimen/corner_radius" />
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar android:id="@id/toolbar" android:background="?titlebarBackground" android:layout_width="fill_parent" android:layout_height="@dimen/actionbar_height" android:layout_alignParentTop="true" app:theme="?toolbarTheme"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

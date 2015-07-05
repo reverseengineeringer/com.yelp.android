@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/selector_list_cell_white_gutter" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/user_photo" android:layout_width="@dimen/notification_list_photo_thumb_size" android:layout_height="@dimen/notification_list_photo_thumb_size" android:layout_marginRight="@dimen/base_container_margin" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/LargeText" android:linksClickable="true" android:id="@id/username_and_comment" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" />
+        <TextView android:textAppearance="@style/StandardLightText" android:id="@id/time_ago" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

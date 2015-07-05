@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/background_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/photo_prompt_background" android:scaleType="centerCrop" android:layout_weight="1.0" android:contentDescription="@null" />
+        <ImageView android:id="@id/background" android:background="@color/purple_dark" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/prompt_background_bar" android:scaleType="centerCrop" android:adjustViewBounds="true" />
+    </LinearLayout>
+    <include android:id="@id/content_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/panel_photo_prompt" />
+    <com.yelp.android.ui.panels.PanelLoading android:id="@id/loading_layout" android:background="@android:color/white" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" yelp:label="@string/loading" />
+</RelativeLayout>

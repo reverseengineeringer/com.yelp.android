@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/award_banner_background" android:padding="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" style="@style/SmallText" />
+    <TextView android:id="@id/award_banner_left_text" android:padding="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:layout_toLeftOf="@id/award_banner_right_text" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/SmallDarkText" />
+    <TextView android:id="@id/award_banner_right_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_small_gap_size" android:maxLines="1" android:layout_toLeftOf="@id/award_banner_icon" android:layout_centerVertical="true" style="@style/SmallText" />
+    <ImageView android:id="@id/award_banner_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_small_gap_size" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/first_to_tip" />
+</merge>

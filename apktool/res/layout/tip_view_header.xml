@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/tip_info" android:background="@drawable/selector_list_cell_gray" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?gutterCellStyle">
+        <include layout="@layout/panel_tip_info" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/feedback_panel" android:background="@drawable/selector_list_cell_gray" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?gutterCellStyle">
+        <com.yelp.android.ui.widgets.LeftDrawableButton android:id="@id/compliment_tip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="?smallGapSize" android:layout_weight="1.0" style="@style/Widget.Button.IconToggle.Compliment" />
+        <com.yelp.android.ui.widgets.LeftDrawableToggleButton android:id="@id/like_tip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="?smallGapSize" android:drawablePadding="4.0dip" android:layout_weight="1.0" style="@style/Widget.Button.IconToggle.Like" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/photo_box" android:background="@drawable/selector_list_cell_white_gutter" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?gutterCellStyle">
+        <com.yelp.android.ui.widgets.WebImageView android:id="@id/photo_bar" android:background="@null" android:clickable="true" android:layout_width="fill_parent" android:layout_height="100.0dip" android:scaleType="centerCrop" yelp:forceRoundingMode="overlay" />
+    </RelativeLayout>
+    <com.yelp.android.ui.widgets.UsersWhoLikedThisView android:id="@id/likes_box" android:background="@drawable/selector_list_cell_white_gutter" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?gutterCellStyle" />
+</LinearLayout>

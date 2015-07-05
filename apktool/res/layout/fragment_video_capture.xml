@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/square_texture_view" />
+    <ImageView android:id="@id/gallery" android:visibility="gone" android:layout_marginRight="?largeGapSize" android:layout_marginBottom="?largeGapSize" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:contentDescription="@string/gallery" style="@style/GalleryButton" />
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:contentDescription="@string/take_video">
+        <com.yelp.android.ui.widgets.PieProgress android:id="@id/pie_progress" android:layout_width="90.0dip" android:layout_height="90.0dip" yelp:progressColor="@color/red" />
+        <Button android:layout_gravity="center" android:id="@id/record" android:background="@drawable/video_start_recording" android:layout_width="60.0dip" android:layout_height="60.0dip" />
+    </FrameLayout>
+    <ImageView android:id="@id/photo_toggle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?largeGapSize" android:layout_marginBottom="?largeGapSize" android:src="@drawable/camera_toggle" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:contentDescription="@string/photo_toggle" />
+</RelativeLayout>

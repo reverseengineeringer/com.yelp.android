@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white_cream" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/rate_buttons">
+        <ImageView android:id="@id/dino_wink" android:background="@anim/dino_wink_animation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" />
+        <TextView android:textAppearance="@style/SubtitleDarkText" android:gravity="center" android:id="@id/enjoying_app" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="@string/enjoying_yelp_app" />
+        <TextView android:textAppearance="@style/LargeGrayText" android:gravity="center" android:id="@id/should_rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="?baseGapSize" android:text="@string/rate_app_prompt" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/rate_buttons" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?largeGapSize" android:layout_alignParentBottom="true">
+        <Button android:textAppearance="@style/SubtitleDarkText" android:id="@id/rate_app" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/rate_yelp_app" />
+        <Button android:id="@id/remind_later" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/remind_me_later" style="@style/TransparentButton" />
+    </LinearLayout>
+</RelativeLayout>

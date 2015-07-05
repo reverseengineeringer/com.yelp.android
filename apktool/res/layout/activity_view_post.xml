@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.util.ScrollToLoadListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:dividerHeight="0.0px" android:layout_weight="1.0" style="?listViewStyle" />
+    <LinearLayout android:orientation="vertical" android:id="@android:id/empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:layout_weight="1.0">
+        <ViewStub android:id="@id/header_stub" android:layout="@layout/panel_topic_message_header" android:inflatedId="@id/header" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textAppearance="@style/LargeText" android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_replies_yet" />
+    </LinearLayout>
+    <include android:id="@id/input_box_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/panel_input_box" />
+</LinearLayout>

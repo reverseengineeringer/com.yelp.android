@@ -1,0 +1,20 @@
+package com.yelp.android.ui.activities.search;
+
+class az
+  implements at
+{
+  az(ToolbarSearch paramToolbarSearch) {}
+  
+  public void a()
+  {
+    ToolbarSearch.a(a, ToolbarSearch.a(a).a());
+    ToolbarSearch.b(a, ToolbarSearch.a(a).b());
+    a.a();
+  }
+}
+
+/* Location:
+ * Qualified Name:     com.yelp.android.ui.activities.search.az
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

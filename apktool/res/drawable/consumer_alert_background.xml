@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/consumer_alert_pattern" android:dither="false" android:tileMode="repeat" />
+    </item>
+    <item>
+        <nine-patch android:src="@drawable/consumer_alert_overlay" android:dither="false" />
+    </item>
+</layer-list>

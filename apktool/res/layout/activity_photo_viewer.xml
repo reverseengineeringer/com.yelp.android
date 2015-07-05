@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.ZoomViewPager android:gravity="center" android:id="@id/view_pager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.yelp.android.ui.activities.photoviewer.PhotoChrome android:id="@id/photo_chrome" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/who_liked_fragment_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/yeah_button" android:layout_below="@id/border" android:layout_alignWithParentIfMissing="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/content_stub" android:inflatedId="@id/notification_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:layout_alignParentBottom="true" />
+    <TextView android:textAppearance="@style/TitleText" android:textColor="?notificationSubtitleColor" android:gravity="center" android:id="@id/dlg_subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:text="?notificationSubtitle" android:layout_above="@id/notification_content" />
+    <ImageView android:id="@id/dlg_draw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:src="?notificationImage" android:scaleType="fitCenter" android:layout_above="@id/dlg_subtitle" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/red_yelp" android:padding="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/yelp_logo" android:layout_width="@dimen/logo_for_splash_one_third_width" android:layout_height="@dimen/logo_for_splash_one_third_height" android:src="@drawable/logo_for_splash" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/categories" android:layout_below="@id/yelp_logo">
+        <FrameLayout android:id="@id/search_icon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/icon_border" android:layout_width="250.0dip" android:layout_height="250.0dip" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.1" />
+            <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/search_onboarding_icon" android:contentDescription="@null" />
+        </FrameLayout>
+        <TextView android:textAppearance="@style/HeadlineWhiteText" android:layout_gravity="center_horizontal" android:id="@id/tagline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ready_set_yelp" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/categories" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" android:layout_alignParentBottom="true">
+        <include android:id="@id/restaurant_search_item" layout="@layout/onboarding_search_category_item" />
+        <View android:background="@color/transparent_gray" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+        <include android:id="@id/bars_search_item" layout="@layout/onboarding_search_category_item" />
+        <View android:background="@color/transparent_gray" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+        <include android:id="@id/coffee_search_item" layout="@layout/onboarding_search_category_item" />
+    </LinearLayout>
+</RelativeLayout>

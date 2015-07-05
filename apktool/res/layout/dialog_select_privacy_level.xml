@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup android:id="@id/radio_group" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="?android:listDivider" android:showDividers="middle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioButton android:id="@id/name_and_profile" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/name_and_profile" style="@style/RadioButton" />
+    <RadioButton android:id="@id/demographics_only" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/demographics_only" style="@style/RadioButton" />
+    <RadioButton android:id="@id/basic_info" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/basic_info" style="@style/RadioButton" />
+</RadioGroup>

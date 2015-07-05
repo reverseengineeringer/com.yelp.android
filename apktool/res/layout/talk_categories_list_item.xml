@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textAppearance="@style/LargeText" android:gravity="center_vertical" android:background="@drawable/selector_list_cell_white_gutter" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

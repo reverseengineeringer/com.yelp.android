@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white_dirty_snow" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/menu_image" android:visibility="gone" android:layout_width="@dimen/medium_photo_size" android:layout_height="@dimen/medium_photo_size" android:layout_marginTop="3.0dip" android:layout_marginRight="?imageGapSize" yelp:forceRoundingMode="clip" />
+    <TextView android:textAppearance="@style/StandardLightText" android:ellipsize="none" android:id="@id/menu_price_textview" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:singleLine="true" android:layout_alignParentRight="true" />
+    <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/menu_title_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_toLeftOf="@id/menu_price_textview" android:layout_toRightOf="@id/menu_image" android:layout_alignWithParentIfMissing="true" />
+    <TextView android:textAppearance="@style/StandardLightText" android:id="@id/menu_description_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/menu_image" android:layout_below="@id/menu_title_textview" />
+</RelativeLayout>

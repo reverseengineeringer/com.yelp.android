@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:paddingLeft="?baseGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/businesspage_grey_box_background" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/close" android:padding="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/close" />
+        <TextView android:textAppearance="@style/LargeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:text="@string/cant_buy_reviews" android:layout_toLeftOf="@id/close" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StPatricks" parent="@style/StPatricksDefault" />
+    <style name="Thanksgiving" parent="@style/ThanksgivingDefault" />
+    <style name="Valentines" parent="@style/ValentinesDefault" />
+</resources>

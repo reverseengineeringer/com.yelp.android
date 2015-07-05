@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/your_name_on_the_guestlist" style="@style/Widget.TextView.ListSeparatorYelp" />
+        <TextView android:id="@id/current_user_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="?baseGapSize" />
+        <TextView android:id="@id/add_guests_title" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Widget.TextView.ListSeparatorYelp" />
+        <LinearLayout android:orientation="vertical" android:id="@id/guests_list" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <ViewStub android:id="@id/freeform_question" android:layout="@layout/complete_rsvp_question" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

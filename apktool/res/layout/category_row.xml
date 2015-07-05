@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/category_content" android:paddingTop="0.0dip" android:paddingRight="0.0dip" android:paddingBottom="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?sublistCell"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:gravity="center_vertical" android:id="@id/image_disclosure" android:paddingRight="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="?smallGapSize" android:src="@drawable/arrow_graphic" android:layout_alignTop="@id/title" android:layout_alignBottom="@id/title" android:layout_alignParentRight="true" android:contentDescription="@null" />
+    <CheckedTextView android:textAppearance="@style/HeadlineText" android:gravity="center_vertical" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:checkMark="@drawable/checked_textbutton_category" android:drawablePadding="@dimen/category_padding" android:layout_toLeftOf="@id/image_disclosure" />
+</com.yelp.android.ui.widgets.SpannableRelativeLayout>

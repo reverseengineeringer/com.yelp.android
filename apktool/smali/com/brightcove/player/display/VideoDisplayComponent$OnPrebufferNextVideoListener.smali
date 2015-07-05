@@ -1,0 +1,76 @@
+.class Lcom/brightcove/player/display/VideoDisplayComponent$OnPrebufferNextVideoListener;
+.super Ljava/lang/Object;
+.source "VideoDisplayComponent.java"
+
+# interfaces
+.implements Lcom/brightcove/player/event/EventListener;
+
+
+# instance fields
+.field final synthetic this$0:Lcom/brightcove/player/display/VideoDisplayComponent;
+
+
+# direct methods
+.method private constructor <init>(Lcom/brightcove/player/display/VideoDisplayComponent;)V
+    .locals 0
+
+    .prologue
+    .line 631
+    iput-object p1, p0, Lcom/brightcove/player/display/VideoDisplayComponent$OnPrebufferNextVideoListener;->this$0:Lcom/brightcove/player/display/VideoDisplayComponent;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/brightcove/player/display/VideoDisplayComponent;Lcom/brightcove/player/display/VideoDisplayComponent$1;)V
+    .locals 0
+
+    .prologue
+    .line 631
+    invoke-direct {p0, p1}, Lcom/brightcove/player/display/VideoDisplayComponent$OnPrebufferNextVideoListener;-><init>(Lcom/brightcove/player/display/VideoDisplayComponent;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public processEvent(Lcom/brightcove/player/event/Event;)V
+    .locals 3
+    .annotation runtime Lcom/brightcove/player/event/Default;
+    .end annotation
+
+    .prologue
+    .line 635
+    iget-object v1, p0, Lcom/brightcove/player/display/VideoDisplayComponent$OnPrebufferNextVideoListener;->this$0:Lcom/brightcove/player/display/VideoDisplayComponent;
+
+    iget-object v0, p1, Lcom/brightcove/player/event/Event;->properties:Ljava/util/Map;
+
+    const-string/jumbo v2, "video"
+
+    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/brightcove/player/model/Video;
+
+    iput-object v0, v1, Lcom/brightcove/player/display/VideoDisplayComponent;->nextVideo:Lcom/brightcove/player/model/Video;
+
+    .line 636
+    iget-object v1, p0, Lcom/brightcove/player/display/VideoDisplayComponent$OnPrebufferNextVideoListener;->this$0:Lcom/brightcove/player/display/VideoDisplayComponent;
+
+    iget-object v0, p1, Lcom/brightcove/player/event/Event;->properties:Ljava/util/Map;
+
+    const-string/jumbo v2, "source"
+
+    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/brightcove/player/model/Source;
+
+    iput-object v0, v1, Lcom/brightcove/player/display/VideoDisplayComponent;->nextSource:Lcom/brightcove/player/model/Source;
+
+    .line 637
+    return-void
+.end method

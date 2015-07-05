@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.activities.deals.CalculatedPriceView android:id="@id/quantity_view" android:background="@drawable/lightgray_solid" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/businesspage_cell_min_height" yelp:textFormat="@plurals/formula_for_deals" style="?cellButtonStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto" />

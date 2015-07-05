@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/stub" android:inflatedId="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?leftGapSize" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <TextView android:textAppearance="@style/SubtitleText" android:id="@id/title_text" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/icon" android:layout_centerVertical="true" />
+    <AutoCompleteTextView android:id="@id/edit_text" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="?baseGapSize" android:singleLine="true" android:layout_toLeftOf="@id/icon" android:layout_below="@id/title_text" android:layout_centerVertical="true" android:imeOptions="actionDone" />
+    <TextView android:textAppearance="@style/LargeLightText" android:id="@id/subtitle_text" android:visibility="gone" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?largeGapSize" android:layout_toLeftOf="@id/icon" android:layout_below="@id/edit_text" />
+</merge>

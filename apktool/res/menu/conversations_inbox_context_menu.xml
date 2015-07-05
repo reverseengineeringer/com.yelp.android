@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/view_conversation" android:title="@string/view_conversation" />
+    <item android:id="@id/block_user" android:visible="false" />
+    <item android:id="@id/unblock_user" android:visible="false" />
+    <item android:id="@id/flag_conversation" android:title="@string/report_conversation_text" />
+    <item android:id="@id/delete_conversation" android:title="@string/delete_conversation" />
+</menu>

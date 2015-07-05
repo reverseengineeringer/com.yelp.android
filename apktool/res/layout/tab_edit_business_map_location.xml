@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.map.YelpMap android:id="@id/map" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/overlay" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="center" android:contentDescription="@null" />
+    <LinearLayout android:layout_gravity="bottom|center|left" android:background="@drawable/satellite_checkbox_background" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="5.0dip" android:layout_marginBottom="@dimen/base_container_margin">
+        <CheckBox android:layout_gravity="bottom|center|left" android:id="@id/toggle" android:layout_width="30.0dip" android:layout_height="fill_parent" android:checked="false" />
+        <TextView android:gravity="center_vertical" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/satellite" />
+    </LinearLayout>
+    <TextView android:id="@id/business_text" android:background="@drawable/gray_section_background" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:bufferType="spannable" android:maxLines="4" android:minLines="2" />
+</com.yelp.android.ui.map.YelpMap>

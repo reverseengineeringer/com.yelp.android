@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/user_photo" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:layout_marginTop="2.0dip" android:layout_marginRight="@dimen/base_container_margin" android:layout_marginBottom="2.0dip" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" yelp:followCrossRedirects="true" />
+    <TextView android:gravity="center_vertical" android:id="@id/likes_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/disclosure" android:layout_toRightOf="@id/user_photo" android:layout_alignTop="@id/user_photo" />
+    <ImageView android:id="@id/disclosure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+</merge>

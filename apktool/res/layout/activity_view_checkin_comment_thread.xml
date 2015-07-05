@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/input_box_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/panel_input_box" />
+    <ListView android:id="@id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:transcriptMode="normal" android:divider="@null" android:layout_above="@id/input_box_layout" android:layout_alignParentTop="true" />
+    <ScrollView android:orientation="vertical" android:id="@id/empty_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:layout_above="@id/input_box_layout" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ViewStub android:id="@id/header_stub" android:layout="@layout/panel_checkin_comment_header" android:inflatedId="@id/header" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <com.yelp.android.ui.panels.PanelLoading android:gravity="center" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="vertical" android:id="@id/your_name_on_the_guestlist_container" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/LargeBoldLightText" android:id="@id/your_name_on_the_guestlist" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/your_name_on_the_guestlist" />
+    <TextView android:textAppearance="@style/LargeText" android:ellipsize="end" android:id="@id/current_user_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</com.yelp.android.ui.widgets.SpannableLinearLayout>

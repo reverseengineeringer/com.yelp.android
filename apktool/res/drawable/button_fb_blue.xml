@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/blue_fb_signup_outline" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@color/blue_fb_signup_top_gradient_active" android:endColor="@color/blue_fb_signup_bottom_gradient_active" android:angle="@integer/gradient_start_bottom" />
+        </shape>
+    </item>
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/blue_fb_signup_outline" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@color/blue_fb_signup_top_gradient_active" android:endColor="@color/blue_fb_signup_bottom_gradient_active" android:angle="@integer/gradient_start_bottom" />
+        </shape>
+    </item>
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/blue_fb_signup_outline" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@color/blue_fb_signup_top_gradient_active" android:endColor="@color/blue_fb_signup_bottom_gradient_active" android:angle="@integer/gradient_start_bottom" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/blue_fb_signup_outline" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@color/blue_fb_signup_top_gradient_inactive" android:endColor="@color/blue_fb_signup_bottom_gradient_inactive" android:angle="@integer/gradient_start_top" />
+        </shape>
+    </item>
+</selector>

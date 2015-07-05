@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/red_yelp" android:padding="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/yelp_logo" android:layout_width="@dimen/logo_for_splash_one_third_width" android:layout_height="@dimen/logo_for_splash_one_third_height" android:src="@drawable/logo_for_splash" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/button_layout" android:layout_below="@id/yelp_logo">
+        <FrameLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/icon_border" android:layout_width="250.0dip" android:layout_height="250.0dip" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.1" />
+            <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/business_with_clouds_logo" android:contentDescription="@null" />
+        </FrameLayout>
+        <TextView android:textAppearance="@style/HeadlineWhiteText" android:gravity="center" android:id="@id/tagline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_large_gap_size" android:text="@string/we_know_the_place" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/button_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <Button android:id="@id/login_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:text="@string/login" android:layout_weight="1.0" style="@style/Widget.Button.FlatCoral" />
+        <Button android:id="@id/sign_up_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:layout_marginLeft="@dimen/default_base_gap_size" android:text="@string/im_new" android:layout_weight="1.0" style="@style/Widget.Button.FlatGreen" />
+    </LinearLayout>
+</RelativeLayout>

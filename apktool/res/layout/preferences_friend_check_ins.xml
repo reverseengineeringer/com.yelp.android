@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge yelp:preferenceTitleText="@string/friend_check_ins"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/get_notified_when_your_friends_check_in" yelp:preferenceKey="@string/key_check_in_notifications" yelp:preferenceRequireLogin="true" />
+    <com.yelp.android.ui.activities.settings.ChoiceGroup android:id="@id/friend_notification_schedule_switch" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/when" yelp:preferenceSubtitleText="@string/settings_notifications_all" yelp:preferenceRequireLogin="true" yelp:preferenceDependsOn="@string/key_check_in_notifications" />
+    <com.yelp.android.ui.activities.settings.ChoiceGroup android:id="@id/friend_notification_location_switch" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/notifications_from" yelp:preferenceSubtitleText="@string/settings_notifications_cities_mine" yelp:preferenceRequireLogin="true" yelp:preferenceDependsOn="@string/key_check_in_notifications" />
+</merge>

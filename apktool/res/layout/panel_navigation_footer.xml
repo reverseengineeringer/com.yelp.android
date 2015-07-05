@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_gravity="fill_horizontal|center" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textAppearance="@style/LargeDarkText" android:id="@id/previous_button" android:background="@drawable/button_white_gray_border" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="?baseGapSize" android:minHeight="@dimen/clickable_size" android:text="@string/button_previous_results" android:layout_weight="0.5" />
+    <Button android:textAppearance="@style/LargeDarkText" android:id="@id/next_button" android:background="@drawable/button_white_gray_border" android:layout_width="0.0dip" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size" android:text="@string/button_next_results" android:layout_weight="0.5" />
+</merge>

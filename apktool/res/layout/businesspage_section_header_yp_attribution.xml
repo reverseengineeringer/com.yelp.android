@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Widget.TextView.ListSeparatorYelp.WhiteBackground"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/LargeDarkText" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/from_this_business" android:layout_toLeftOf="@id/yellowpages_attribution" android:layout_alignParentLeft="true" />
+    <TextView android:textAppearance="@style/StandardLightText" android:id="@id/yellowpages_attribution" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@id/title" android:layout_alignParentRight="true" android:contentDescription="@string/provided_by_yellowpages" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <SurfaceView android:layout_width="0.0dip" android:layout_height="0.0dip" />
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/blur_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" yelp:forceRoundingMode="none" />
+    <com.yelp.android.ui.widgets.ShadowView android:layout_gravity="center" android:id="@id/shadow_view" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.yelp.android.ui.widgets.ShadowOoyalaPlayerLayout android:layout_gravity="center" android:id="@id/video_player" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/loading_placeholder" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitCenter" android:contentDescription="@null" yelp:forceRoundingMode="none" />
+    <ImageView android:layout_gravity="center" android:id="@id/play_icon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/video_play_large" android:contentDescription="@string/play_video" />
+</merge>

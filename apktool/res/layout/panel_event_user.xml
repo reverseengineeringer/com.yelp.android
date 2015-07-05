@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/user" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell">
+        <include android:id="@id/badge_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignWithParentIfMissing="true" layout="@layout/panel_passport_short" />
+        <CheckBox android:id="@android:id/text1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:id="@id/business_disclosure" android:paddingRight="?smallGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+</com.yelp.android.ui.widgets.WidgetSpan>

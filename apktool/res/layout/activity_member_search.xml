@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/activity_member_search_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/instructions_view" android:padding="20.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/search_bar_animation_offset" />
+    <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/nonefound_view" android:padding="20.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/search_bar_animation_offset" android:text="@string/member_none_found" />
+    <com.yelp.android.ui.util.ScrollToLoadListView android:id="@id/member_list_view" android:paddingTop="@dimen/search_bar_animation_offset" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?listViewStyle" />
+    <com.yelp.android.ui.widgets.EditTextAndClearButton android:id="@id/search_text" android:focusable="true" android:layout_width="fill_parent" android:layout_height="@dimen/contextual_search_bar_height" android:hint="@string/member_hint" style="@style/SearchBox.SingleSearchBar.ClearFunctionality" />
+</RelativeLayout>

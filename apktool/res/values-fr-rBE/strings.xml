@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="YPErrorInvalidZip">"Ce nom de ville n'est pas valide."</string>
+    <string name="ad_choices_url">https://fr.m.yelp.be/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.be/advertiser_faq</string>
+    <string name="category_banks">Banques et organismes de crédit</string>
+    <string name="category_bars">Bars</string>
+    <string name="category_coffee">Café et thé</string>
+    <string name="category_drugstores">Pharmacies</string>
+    <string name="category_nightlife">Vie nocturne</string>
+    <string name="category_restaurants">Restaurants</string>
+    <string name="category_servicestations">Essence &amp; Station services</string>
+    <string name="compliment_cool">Tu es trop cool !</string>
+    <string name="compliment_cute">Jolie photo</string>
+    <string name="compliment_desc_cool">Tu es la personne la plus cool au monde.</string>
+    <string name="compliment_desc_cute">Dis-moi, tu es mannequin non ?</string>
+    <string name="compliment_desc_funny">Tu es vachement drôle !</string>
+    <string name="compliment_desc_hot">Tu me fais fondre comme neige au soleil.</string>
+    <string name="compliment_desc_list">"Même dans le Routard, il n'y a pas de liste aussi complète et intéressante."</string>
+    <string name="compliment_desc_more">"J’imagine que ta vie sociale et tes différentes activités t'empêchent de rédiger des avis sur Yelp, mais je ne peux plus attendre…tu dois absolument publier un nouvel avis. C’est comme si j'étais privé de mon café du matin, ton absence commence à peser sérieusement sur mon humeur, alors s'il te plait, pense à tes lecteurs et établis des priorités."</string>
+    <string name="compliment_desc_note" />
+    <string name="compliment_desc_photos">"Belles Photos ! Guy Peellaert n'a qu'à bien se tenir ! Continue comme ça !"</string>
+    <string name="compliment_desc_plain">D’abord j’ai eu peur, j’étais pétrifié(e). Comment pourrais-je vivre encore sans Yelp à mes côtés. Puis j’ai lu tous tes avis et grâce à eux j’en suis sorti, avec tous mes amis, on s’éclate en boîte de nuit.</string>
+    <string name="compliment_desc_profile">"Ton profil est une vraie drogue. J'en suis accro."</string>
+    <string name="compliment_desc_writer">Oscar Wilde a dit un jour : « Tout le monde peut faire l’histoire. Seul un grand Homme peut l’écrire. » Mon ami(e), tu es cet homme (ou cette femme).</string>
+    <string name="compliment_funny">Tu es drôle</string>
+    <string name="compliment_hot">Trop hot</string>
+    <string name="compliment_list">Super listes</string>
+    <string name="compliment_more">Écris plus</string>
+    <string name="compliment_note">Juste un mot</string>
+    <string name="compliment_photos">Superbe photo</string>
+    <string name="compliment_plain">Merci</string>
+    <string name="compliment_profile">"J'aime ton profile"</string>
+    <string name="compliment_writer">Tu écris bien</string>
+    <string name="content_guidelines_url">https://fr.m.yelp.be/guidelines</string>
+    <string name="elite_url">https://fr.m.yelp.be/elite</string>
+    <string name="locality_string">Ville</string>
+    <string name="mobile_host">fr.m.yelp.be</string>
+    <string name="not_recommended_reviews_url">https://fr.m.yelp.be/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://fr.m.yelp.be/static?p=privacy</string>
+    <string name="privacy_settings_url">https://fr.m.yelp.be/profile_privacy</string>
+    <string name="remove_reason_member_request">Cet utilisateur a été supprimé car il a enfreint les &lt;a rel=nofollow href=/static?p=tos>Conditions d’utilisation&lt;/a> de Yelp.</string>
+    <string name="remove_reason_post_by_admin">Cette publication a été supprimée par un administrateur Yelp.</string>
+    <string name="remove_reason_post_by_admin_tos">Cette publication enfreignait les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et a donc été supprimée.</string>
+    <string name="remove_reason_post_by_popular_demand">Cette publication a été marquée comme inappropriée par la communauté et a donc été supprimée.</string>
+    <string name="remove_reason_post_member_request">Cette publication a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=nofollow href=/static?p=tos>Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_post_tos_content">Cette publication a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_post_tos_general">Cette publication a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_post_tos_multiple">Cette publication a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_post_tos_spammer">Cette publication a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_post_tos_threat">Cette publication a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_topic_by_admin">Cette conversation a été supprimée par un administrateur Yelp.</string>
+    <string name="remove_reason_topic_by_admin_tos">Cette conversation enfreignait les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et a donc été supprimée.</string>
+    <string name="remove_reason_topic_by_popular_demand">Cette conversation a été marquée comme inappropriée par la communauté et a donc été supprimée.</string>
+    <string name="remove_reason_topic_member_request">Cette conversation a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=nofollow href=/static?p=tos>Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_topic_tos_content">Cette conversation a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_topic_tos_general">Cette conversation a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_topic_tos_multiple">Cette conversation a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_topic_tos_spammer">Cette conversation a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_topic_tos_threat">Cette conversation a été supprimée car le Yelpeur qui en était l’auteur a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp et ne fait plus partie des Yelpeurs enregistrés.</string>
+    <string name="remove_reason_tos_content">Cet utilisateur a été supprimé car il a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp.</string>
+    <string name="remove_reason_tos_general">Cet utilisateur a été supprimé car il a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp.</string>
+    <string name="remove_reason_tos_multiple">Cet utilisateur a été supprimé car il a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp.</string>
+    <string name="remove_reason_tos_spammer">Cet utilisateur a été supprimé car il a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp.</string>
+    <string name="remove_reason_tos_threat">Cet utilisateur a été supprimé car il a enfreint les &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Conditions d’utilisation&lt;/a> de Yelp.</string>
+    <string name="site_name">Yelp.be</string>
+    <string name="talk_category_0">Sans catégories</string>
+    <string name="talk_category_1">Questions locales</string>
+    <string name="talk_category_10">Alimentation</string>
+    <string name="talk_category_11">Shopping et produits</string>
+    <string name="talk_category_12">Relations amoureuses</string>
+    <string name="talk_category_13">Voyage</string>
+    <string name="talk_category_14">Famille et parents</string>
+    <string name="talk_category_2">Sorties</string>
+    <string name="talk_category_3">Drôle et insolite</string>
+    <string name="talk_category_4">Pop culture</string>
+    <string name="talk_category_5">Sports</string>
+    <string name="talk_category_6">Actualités et politique</string>
+    <string name="talk_category_7">Lumière sur un Yelpeur</string>
+    <string name="talk_category_8">Questions sur le site</string>
+    <string name="talk_category_9">Autres</string>
+    <string name="talk_category_entertainment_pop_culture">Pop culture</string>
+    <string name="talk_category_events">Sorties</string>
+    <string name="talk_category_family_and_parenting">Famille et parents</string>
+    <string name="talk_category_food">Alimentation</string>
+    <string name="talk_category_humor_and_offbeat">Drôle et insolite</string>
+    <string name="talk_category_local_questions_and_answers">Questions locales</string>
+    <string name="talk_category_news_and_politics">Actualités et politique</string>
+    <string name="talk_category_other">Autres</string>
+    <string name="talk_category_relationships_dating">Relations amoureuses</string>
+    <string name="talk_category_shopping_and_products">Shopping et produits</string>
+    <string name="talk_category_site_questions_and_updates">Questions sur le site</string>
+    <string name="talk_category_sports">Sports</string>
+    <string name="talk_category_travel">Voyage</string>
+    <string name="talk_category_uncategorized">Sans catégories</string>
+    <string name="talk_category_yelper_shout_outs">Lumière sur un Yelpeur</string>
+    <string name="terms_of_service_url">https://fr.m.yelp.be/static?p=tos</string>
+    <string name="www_host">fr.yelp.be</string>
+</resources>

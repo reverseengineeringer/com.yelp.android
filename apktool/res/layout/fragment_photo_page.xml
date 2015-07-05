@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/blur_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <ImageView android:id="@id/low_res_photo" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@null" />
+    <com.yelp.android.ui.widgets.ScaleWebImageView android:id="@id/photo" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</merge>

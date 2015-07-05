@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@null" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/transparent_header" android:background="@null" android:layout_width="fill_parent" android:layout_height="@dimen/map_list_transparent_header_height" />
+    <View android:id="@id/shadow_header" android:background="@drawable/map_list_shadow_header" android:layout_width="fill_parent" android:layout_height="@dimen/panel_drop_shadow_height" />
+    <RelativeLayout android:id="@id/title_layout" android:background="@drawable/white_cell_with_bottom_border" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/title" android:background="@null" android:paddingLeft="?leftGapSize" android:paddingTop="?topGapSize" android:paddingRight="?rightGapSize" android:paddingBottom="?bottomGapSize" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" style="?minorListSeparatorTextViewStyle" />
+        <ImageView android:id="@id/handle" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/notification_bar_drawer_handle" android:scaleType="fitCenter" android:contentDescription="@null" />
+    </RelativeLayout>
+</LinearLayout>

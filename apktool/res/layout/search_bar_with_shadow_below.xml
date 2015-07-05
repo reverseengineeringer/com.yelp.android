@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/toolbar" android:layout_alignWithParentIfMissing="true" layout="@layout/search_bar" />
+    <ImageView android:id="@id/shadow_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="?contentOverlay" android:scaleType="fitXY" android:layout_below="@id/search_holder" android:contentDescription="@null" />
+</merge>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/checkin_leaderboard_panel" android:background="@drawable/selector_list_cell_white_no_border_on_right" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellSquareStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/passport" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true">
+        <include layout="@layout/panel_passport_long" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="right" android:orientation="vertical" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/passport" android:layout_alignParentRight="true">
+        <TextView android:textAppearance="@style/LargeDarkText" android:textColor="@color/gray_yoni_light_text" android:gravity="right" android:id="@id/rank" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawablePadding="3.0dip" />
+        <TextView android:textAppearance="@style/StandardText" android:gravity="right" android:id="@id/count" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</com.yelp.android.ui.widgets.SpannableRelativeLayout>

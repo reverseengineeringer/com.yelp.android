@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.WebImageView android:layout_gravity="center_vertical" android:id="@id/compose_message_recipient_picture" android:visibility="gone" android:layout_width="@dimen/thumbnail_icon_size" android:layout_height="@dimen/thumbnail_icon_size" />
+    <EditText android:layout_gravity="center_vertical" android:id="@id/compose_message_recipient" android:background="@null" android:paddingLeft="@dimen/recipient_box_view_spacing" android:paddingBottom="2.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:singleLine="true" android:inputType="text" android:imeOptions="flagNoExtractUi" />
+</merge>

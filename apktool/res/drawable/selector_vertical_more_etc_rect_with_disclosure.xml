@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false" android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <item yelp:state_clickable="true">
+        <layer-list>
+            <item android:drawable="@drawable/selector_gray_rounded_rect_inactive" />
+            <item android:right="@dimen/disclosure_arrow_width">
+                <bitmap android:gravity="right" android:src="@drawable/arrow_graphic" />
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_enabled="true">
+        <layer-list>
+            <item android:drawable="@drawable/selector_gray_rounded_rect_inactive" />
+            <item android:right="@dimen/disclosure_arrow_width">
+                <bitmap android:gravity="right" android:src="@drawable/arrow_graphic" />
+            </item>
+        </layer-list>
+    </item>
+    <item android:drawable="@drawable/selector_gray_rounded_rect_inactive" />
+</selector>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:opacity="opaque"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/black" />
+            <stroke android:width="@dimen/talk_location_button_stroke_width" android:color="@color/transparent_talk_button_stroke" />
+            <padding android:left="@dimen/talk_location_button_padding" android:top="@dimen/talk_location_button_padding" android:right="@dimen/talk_location_button_padding" android:bottom="@dimen/talk_location_button_padding" />
+            <corners android:radius="@dimen/talk_location_button_corner_radius" />
+            <gradient android:startColor="@color/white" android:endColor="@color/gray_faint" android:angle="@integer/talk_location_button_gradient_angle" android:type="linear" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/talk_settings_icon" />
+</layer-list>

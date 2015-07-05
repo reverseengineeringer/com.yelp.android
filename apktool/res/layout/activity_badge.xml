@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title.Inverse" android:ellipsize="end" android:gravity="center" android:layout_gravity="center" android:id="@id/badge_title" android:background="?titlebarBackground" android:layout_width="fill_parent" android:layout_height="@dimen/actionbar_height" android:maxLines="1" android:singleLine="true" android:layout_alignParentTop="true" />
+    <Button android:id="@id/yeah_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:text="@string/oh_yeah" android:layout_alignParentBottom="true" />
+    <fragment android:name="com.yelp.android.ui.activities.feed.CurrentUserFeedFragment" android:id="@id/badge_feed" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/yeah_button" android:layout_below="@id/badge_title" android:layout_alignWithParentIfMissing="true" />
+</RelativeLayout>

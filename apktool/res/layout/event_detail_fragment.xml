@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingLeft="?leftGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?rightGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/LargeLightText" android:id="@id/details" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <View android:id="@id/divider" android:background="@color/gray_mid_light" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="?baseGapSize" android:layout_marginBottom="?baseGapSize" />
+        <TextView android:id="@id/website" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:id="@id/tickets_website" android:paddingTop="?baseGapSize" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

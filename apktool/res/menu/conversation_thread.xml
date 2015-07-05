@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@id/single_conversation_menu_group">
+        <item android:id="@id/block_user" android:visible="false" yelp:showAsAction="never" />
+        <item android:id="@id/unblock_user" android:visible="false" yelp:showAsAction="never" />
+        <item android:id="@id/flag_conversation" android:title="@string/report_conversation_text" yelp:showAsAction="never" />
+        <item android:id="@id/delete_conversation" android:title="@string/delete_conversation" yelp:showAsAction="never" />
+    </group>
+</menu>

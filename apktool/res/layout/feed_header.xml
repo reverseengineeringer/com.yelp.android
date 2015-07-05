@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/feed_header" android:paddingTop="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/notifications" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/notifications" android:drawableLeft="@drawable/nav_notifications" android:layout_toLeftOf="@id/notifications_badge" style="@style/FeedHeaderItem" />
+        <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/messages" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/messages" android:drawableLeft="@drawable/nav_messages" style="@style/FeedHeaderItem" />
+    </com.yelp.android.ui.widgets.WidgetSpan>
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/black_yoni" android:gravity="center_vertical" android:id="@id/feed_label" android:paddingLeft="?baseGapSize" android:paddingTop="?baseGapSize" android:paddingBottom="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_huge_gap_size" android:text="@string/friend_activity" />
+</LinearLayout>

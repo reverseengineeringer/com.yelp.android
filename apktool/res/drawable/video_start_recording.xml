@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="@dimen/video_record_icon_padding" android:top="@dimen/video_record_icon_padding" android:right="@dimen/video_record_icon_padding" android:bottom="@dimen/video_record_icon_padding">
+        <shape android:shape="oval">
+            <padding android:left="@dimen/video_start_recording_padding" android:top="@dimen/video_start_recording_padding" android:right="@dimen/video_start_recording_padding" android:bottom="@dimen/video_start_recording_padding" />
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/red_fire_engine" />
+        </shape>
+    </item>
+</layer-list>

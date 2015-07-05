@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="10.0dip" android:paddingTop="8.0dip" android:paddingRight="10.0dip" android:paddingBottom="10.0dip" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/award_banners" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/tip_award_banners" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/top" layout="@layout/panel_base_user_feed_cell" />
+        <include layout="@layout/panel_tip_bubble_buttons" />
+    </RelativeLayout>
+</LinearLayout>

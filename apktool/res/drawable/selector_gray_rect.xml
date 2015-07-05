@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false" android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:yelp="http://schemas.android.com/apk/res/com.yelp.android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/white_dirty_snow" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/gray_cell" />
+        </shape>
+    </item>
+</selector>

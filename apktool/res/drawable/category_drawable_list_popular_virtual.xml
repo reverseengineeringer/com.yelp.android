@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:opacity="opaque"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/new_biz_icon" />
+    <item android:drawable="@drawable/delivery_nearby_icon" />
+    <item android:drawable="@drawable/profile_deals_icon" />
+    <item android:drawable="@drawable/check_in_offers_icon" />
+    <item android:drawable="@drawable/everything" />
+</layer-list>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="2500" android:drawable="@drawable/dino_rate_app" />
+    <item android:duration="1000" android:drawable="@drawable/dino_rate_app_wink" />
+</animation-list>

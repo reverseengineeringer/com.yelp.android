@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText android:gravity="top" android:background="@color/transparent" android:paddingLeft="?baseGapSize" android:paddingTop="?smallGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@null" android:minLines="4" android:inputType="textMultiLine"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white_cream" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dino_wink" android:background="@anim/dino_wink_animation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?largeGapSize" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="?largeGapSize" android:layout_toRightOf="@id/dino_wink" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <TextView android:textAppearance="@style/TitleText" android:gravity="center" android:id="@id/enjoying_app" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/enjoying_yelp_app" />
+        <TextView android:textAppearance="@style/SubtitleGrayText" android:gravity="center" android:id="@id/should_rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="?largeGapSize" android:layout_marginBottom="?baseGapSize" android:text="@string/rate_app_prompt" android:layout_below="@id/enjoying_app" />
+        <Button android:textAppearance="@style/SubtitleDarkText" android:id="@id/rate_app" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:text="@string/rate_yelp_app" android:layout_below="@id/should_rate" />
+        <Button android:id="@id/remind_later" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="?smallGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?largeGapSize" android:text="@string/remind_me_later" android:layout_below="@id/rate_app" style="@style/TransparentButton" />
+    </RelativeLayout>
+</RelativeLayout>

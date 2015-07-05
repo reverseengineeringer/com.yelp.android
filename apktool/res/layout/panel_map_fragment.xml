@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout yelp:layout_width="fill_parent" yelp:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:yelp="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.map.YelpMap yelp:id="@id/map" yelp:layout_width="fill_parent" yelp:layout_height="fill_parent" yelp:layout_alignParentTop="true" />
+</RelativeLayout>

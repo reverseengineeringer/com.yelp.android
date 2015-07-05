@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- The android tests require the mock location permission so this applies it to all debug builds.
+         Ideally we would only apply this to test builds -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.SET_ANIMATION_SCALE" />
+
+</manifest>

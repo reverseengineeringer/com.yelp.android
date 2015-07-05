@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/HeadlineText" android:id="@id/deal_title" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/purchase_row" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="3.0">
+        <TextView android:gravity="left" android:id="@id/customer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <TextView android:gravity="left" android:id="@id/purchaser" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:id="@id/expiration" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/HeadlineDarkText" android:textColor="@color/red" android:id="@id/what_you_get" android:paddingTop="?baseGapSize" android:paddingBottom="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

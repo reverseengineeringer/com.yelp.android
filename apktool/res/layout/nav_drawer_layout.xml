@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout android:id="@id/drawer_layout" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/content_wrapper" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.yelp.android.ui.view.KeyboardAwareLinearLayout android:id="@id/hot_buttons" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <ImageButton android:id="@id/hot_button_nearby" android:background="@drawable/selector_hot_button_background" android:layout_width="0.0dip" android:layout_height="@dimen/hot_button_height" android:src="@drawable/selector_hot_button_nearby" android:layout_weight="1.0" android:contentDescription="@string/nav_nearby" />
+            <ImageButton android:id="@id/hot_button_search" android:background="@drawable/selector_hot_button_background" android:layout_width="0.0dip" android:layout_height="@dimen/hot_button_height" android:src="@drawable/selector_hot_button_search" android:layout_weight="1.0" android:contentDescription="@string/search" />
+            <ImageButton android:id="@id/hot_button_feed" android:background="@drawable/selector_hot_button_background" android:layout_width="0.0dip" android:layout_height="@dimen/hot_button_height" android:layout_weight="1.0" android:contentDescription="@string/activity" />
+        </com.yelp.android.ui.view.KeyboardAwareLinearLayout>
+        <include layout="@layout/toolbar_layout" />
+        <FrameLayout android:id="@id/content_frame" android:layout_width="fill_parent" android:layout_height="fill_parent" android:foreground="?contentOverlay" android:layout_above="@id/hot_buttons" android:layout_below="@id/toolbar" />
+    </RelativeLayout>
+    <fragment android:name="com.yelp.android.ui.activities.drawer.DrawerFragment" android:layout_gravity="start" android:id="@id/nav_drawer" android:layout_width="300.0dip" android:layout_height="fill_parent" />
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/event_header_content" android:paddingLeft="?baseGapSize" android:paddingTop="?largeGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/event_header_photo" android:layout_width="@dimen/large_photo_size" android:layout_height="@dimen/large_photo_size" android:scaleType="centerCrop" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textAppearance="@style/TitleText" android:id="@id/event_header_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="@dimen/title_padding_offset" android:includeFontPadding="false" android:layout_toRightOf="@id/event_header_photo" android:layout_alignTop="@id/event_header_photo" style="@style/WhiteShadow" />
+    <include android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/event_header_name" android:layout_alignLeft="@id/event_header_name" layout="@layout/panel_yelp_elite_event" />
+    <TextView android:textAppearance="@style/StandardText" android:id="@id/event_header_categories" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/event_header_name" android:layout_alignLeft="@id/event_header_name" style="@style/WhiteShadow" />
+</RelativeLayout>

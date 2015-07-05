@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="elite_bottom_left_radius">0.0dip</dimen>
+    <dimen name="elite_bottom_right_radius">2.0dip</dimen>
+    <item type="dimen" name="left_button_bottom_left_radius_corner">@dimen/corner_radius</item>
+    <dimen name="left_button_bottom_right_radius_corner">0.0dip</dimen>
+    <dimen name="right_button_bottom_left_radius_corner">0.0dip</dimen>
+    <item type="dimen" name="right_button_bottom_right_radius_corner">@dimen/corner_radius</item>
+</resources>

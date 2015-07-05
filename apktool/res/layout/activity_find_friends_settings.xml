@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/StandardText" android:gravity="center" android:id="@id/find_friends_prompt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?largeGapSize" android:text="@string/find_friends_prompt" />
+    <ListView android:id="@id/config_list" android:paddingTop="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/SmallLightText" android:gravity="center" android:id="@id/find_friends_dont_worry" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="?largeGapSize" android:text="@string/find_friends_dont_worry" />
+</LinearLayout>

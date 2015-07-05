@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_pressed="true" android:drawable="@drawable/selected_cell_gradient" />
+    <item android:state_enabled="false" android:state_selected="true" android:drawable="@drawable/white_cell_with_gutter" />
+    <item android:state_enabled="true" android:state_selected="true" android:drawable="@color/blue_selected" />
+    <item android:state_focused="false" android:state_enabled="true" android:drawable="@drawable/white_cell_with_gutter" />
+    <item android:state_focused="true" android:state_enabled="false" android:drawable="@drawable/white_cell_with_gutter" />
+    <item android:state_enabled="false" android:drawable="@drawable/gray_cell_with_bottom_and_right_border" />
+    <item android:state_focused="true" android:state_enabled="true" android:drawable="@drawable/selected_cell_gradient" />
+</selector>

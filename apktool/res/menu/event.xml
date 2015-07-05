@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_action_share" android:id="@id/share" android:title="@string/share" yelp:showAsAction="ifRoom" />
+    <item android:id="@id/cancel_rsvp" android:visible="false" android:title="@string/cancel_rsvp" yelp:showAsAction="never" />
+    <item android:id="@id/add_to_calendar" android:title="@string/add_to_calendar" yelp:showAsAction="never" />
+    <item android:id="@id/flag" android:title="@string/report_event" yelp:showAsAction="never" />
+</menu>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge yelp:preferenceTitleText="@string/check_in_likes_and_comments"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="@style/HeadlineText" android:paddingLeft="@dimen/list_gutter_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/get_notified_when" style="@style/PreferenceView" />
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/someone_comments_on_your_check_ins" yelp:preferenceKey="@string/key_comments_on_check_ins_I_own" yelp:preferenceRequireLogin="true" />
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/someone_likes_your_check_ins" yelp:preferenceKey="@string/key_check_in_likes" yelp:preferenceRequireLogin="true" />
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/someone_comments_on_a_check_in_already_commented_on" yelp:preferenceKey="@string/key_comments_on_threads" yelp:preferenceRequireLogin="true" />
+</merge>

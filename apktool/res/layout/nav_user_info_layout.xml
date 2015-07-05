@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/nav_user_passport" android:background="@color/white_dirty_snow" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/nav_logged_in" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/nav_user_photo_name" android:background="@drawable/selector_nav_passport_item" android:paddingLeft="@dimen/nav_user_passport_margin" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size">
+            <com.yelp.android.ui.widgets.WebImageView android:id="@id/nav_user_photo" android:layout_width="@dimen/thumbnail_photo_size" android:layout_height="@dimen/thumbnail_photo_size" android:scaleType="fitXY" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/chevron" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_base_gap_size" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+            <com.yelp.android.ui.widgets.AutoResizeTextView android:textSize="34.0sp" android:textColor="@color/black_yoni" android:id="@id/nav_user_name" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:layout_toLeftOf="@id/chevron" android:layout_toRightOf="@id/nav_user_photo" android:layout_centerVertical="true" android:fontFamily="sans-serif-light" />
+        </RelativeLayout>
+        <TextView android:id="@id/nav_friends" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawableLeft="@drawable/nav_passport_friends" style="@style/NavDrawerItem.UserPassport" />
+        <TextView android:id="@id/nav_reviews" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawableLeft="@drawable/nav_passport_reviews" style="@style/NavDrawerItem.UserPassport" />
+        <TextView android:id="@id/nav_media" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_base_gap_size" android:drawableLeft="@drawable/nav_passport_photos" style="@style/NavDrawerItem.UserPassport" />
+    </LinearLayout>
+    <ViewStub android:id="@id/nav_user_info_experiment" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</FrameLayout>

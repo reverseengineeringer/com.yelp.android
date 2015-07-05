@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_guests">
+        <item quantity="other">@string/add_up_to_x_guests</item>
+        <item quantity="one">@string/add_guest</item>
+    </plurals>
+    <plurals name="alert_summary_count">
+        <item quantity="other">@string/alert_summary_textFormat_plural</item>
+        <item quantity="one">@string/you_have_one_new_notification</item>
+    </plurals>
+    <plurals name="business_hours_closes_in">
+        <item quantity="other">@string/business_hours_closes_in_other</item>
+        <item quantity="one">@string/business_hours_closes_in_one</item>
+    </plurals>
+    <plurals name="business_hours_opens_in">
+        <item quantity="other">@string/business_hours_opens_in_other</item>
+        <item quantity="one">@string/business_hours_opens_in_one</item>
+    </plurals>
+    <plurals name="business_page_checkin_count">
+        <item quantity="other">@string/business_page_checkin_count_other</item>
+        <item quantity="one">@string/business_page_checkin_count_one</item>
+    </plurals>
+    <plurals name="checkin_count">
+        <item quantity="other">@string/checkin_count_other</item>
+        <item quantity="one">@string/checkin_count_one</item>
+    </plurals>
+    <plurals name="checkins_here_textFormat">
+        <item quantity="other">@string/checkins_here_textFormat_other</item>
+        <item quantity="one">@string/checkins_here_one</item>
+    </plurals>
+    <plurals name="checkins_remaining_to_unlock_offer">
+        <item quantity="other">@string/checkins_remaining_offer_other</item>
+        <item quantity="one">@string/checkins_remaining_offer_one</item>
+    </plurals>
+    <plurals name="checkins_this_week">
+        <item quantity="other">@string/x_checkins_this_week</item>
+        <item quantity="one">@string/one_checkin_this_week</item>
+    </plurals>
+    <plurals name="checkins_to_unlock_offer">
+        <item quantity="other">@string/checkins_to_unlock_offer_other</item>
+        <item quantity="one">@string/checkins_to_unlock_offer_one</item>
+    </plurals>
+    <plurals name="discuss_this_event">
+        <item quantity="other">@string/yelpers_are_discussing_this_event</item>
+        <item quantity="one">@string/a_yelper_started_to_discuss_this_event</item>
+    </plurals>
+    <plurals name="dollar_signs">
+        <item quantity="other">@string/n_dollar_signs</item>
+        <item quantity="one">@string/one_dollar_sign</item>
+    </plurals>
+    <plurals name="dukedoms_textFormat">
+        <item quantity="other">@string/dukedoms_textFormat_other</item>
+        <item quantity="one">@string/one_dukedom</item>
+    </plurals>
+    <plurals name="embedded_formula_for_deals">
+        <item quantity="other">@string/embedded_formula_for_deals_plural</item>
+        <item quantity="one">@string/embedded_formula_for_deals_single</item>
+    </plurals>
+    <plurals name="filter_format">
+        <item quantity="other">@string/filter_format_other</item>
+        <item quantity="one">@string/filter_format_one</item>
+    </plurals>
+    <plurals name="formula_for_deals">
+        <item quantity="other">@string/formula_for_deals_plural</item>
+        <item quantity="one">@string/formula_for_deals_single</item>
+    </plurals>
+    <plurals name="friend_count">
+        <item quantity="other">@string/friend_count_other</item>
+        <item quantity="one">@string/friend_count_one</item>
+    </plurals>
+    <plurals name="friend_count_no_param">
+        <item quantity="other">@string/friend_count_other_no_param</item>
+        <item quantity="one">@string/friend_count_one_no_param</item>
+    </plurals>
+    <plurals name="friend_request_alert">
+        <item quantity="other">@string/friend_request_alert_other</item>
+        <item quantity="one">@string/friend_request_alert_one</item>
+    </plurals>
+    <plurals name="guests">
+        <item quantity="other">@string/guests</item>
+        <item quantity="one">@string/guest</item>
+    </plurals>
+    <plurals name="more_highlights_count">
+        <item quantity="other">@string/more_highlights_count_other</item>
+        <item quantity="one">@string/more_highlights_count_one</item>
+    </plurals>
+    <plurals name="more_regulars_count">
+        <item quantity="other">@string/more_regulars_count_other</item>
+        <item quantity="one">@string/more_regulars_count_one</item>
+    </plurals>
+    <plurals name="more_reviews_count">
+        <item quantity="other">@string/more_reviews_count_other</item>
+        <item quantity="one">@string/more_reviews_count_one</item>
+    </plurals>
+    <plurals name="more_suggestions">
+        <item quantity="other">@string/more_suggestions_other</item>
+        <item quantity="one">@string/more_suggestions_one</item>
+    </plurals>
+    <plurals name="more_tips_count">
+        <item quantity="other">@string/more_tips_count_other</item>
+        <item quantity="one">@string/more_tips_count_one</item>
+    </plurals>
+    <plurals name="my_photo_feed_count">
+        <item quantity="other">@string/my_photo_feed_count_other</item>
+        <item quantity="one">@string/my_photo_feed_count_one</item>
+    </plurals>
+    <plurals name="nearby_friend">
+        <item quantity="other">@string/nearby_friend_other</item>
+        <item quantity="one">@string/nearby_friend_one</item>
+    </plurals>
+    <plurals name="opentable_party_size">
+        <item quantity="other">@string/opentable_party_size_other</item>
+        <item quantity="one">@string/opentable_party_size_one</item>
+    </plurals>
+    <plurals name="photo_activity_feed_count">
+        <item quantity="other">@string/photo_activity_feed_count_other</item>
+        <item quantity="one">@string/photo_activity_feed_count_one</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="other">@string/photo_count_other</item>
+        <item quantity="one">@string/photo_count_one</item>
+    </plurals>
+    <plurals name="photo_count_no_param">
+        <item quantity="other">@string/photo_count_other_no_param</item>
+        <item quantity="one">@string/photo_count_one_no_param</item>
+    </plurals>
+    <plurals name="photo_feed_count">
+        <item quantity="other">@string/photo_feed_count_other</item>
+        <item quantity="one">@string/photo_feed_count_one</item>
+    </plurals>
+    <plurals name="previous_reviews_title">
+        <item quantity="other">@string/x_previous_reviews</item>
+        <item quantity="one">@string/one_previous_review</item>
+    </plurals>
+    <plurals name="redemption_title_count">
+        <item quantity="other">@string/redemption_title_count_other</item>
+        <item quantity="one">@string/redemption_title_count_one</item>
+    </plurals>
+    <plurals name="review_count">
+        <item quantity="other">@string/review_count_other</item>
+        <item quantity="one">@string/review_count_one</item>
+    </plurals>
+    <plurals name="review_count_no_param">
+        <item quantity="other">@string/review_count_other_no_param</item>
+        <item quantity="one">@string/review_count_one_no_param</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals">
+        <item quantity="other">@string/sadly_for_this_deal_you_are_only_allowed_x_deals</item>
+        <item quantity="one">@string/sadly_for_this_deal_you_are_only_allowed_1_deal</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals_for_yourself">
+        <item quantity="other">@string/sadly_for_this_deal_you_are_only_allowed_x_deals_for_yourself</item>
+        <item quantity="one">@string/sadly_for_this_deal_you_are_only_allowed_1_deal_for_yourself</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_gifts">
+        <item quantity="other">@string/sadly_for_this_deal_you_are_only_allowed_x_gifts</item>
+        <item quantity="one">@string/sadly_for_this_deal_you_are_only_allowed_1_gift</item>
+    </plurals>
+    <plurals name="section_label_reviews_search">
+        <item quantity="other">@string/section_label_reviews_search_other</item>
+        <item quantity="one">@string/section_label_reviews_search_one</item>
+    </plurals>
+    <plurals name="section_not_recommended_reviews_title">
+        <item quantity="other">@string/not_recommended_reviews_other</item>
+        <item quantity="one">@string/not_recommended_reviews_one</item>
+    </plurals>
+    <plurals name="show_more_events">
+        <item quantity="other">@string/show_more_events</item>
+        <item quantity="one">@string/show_one_more_event</item>
+    </plurals>
+    <plurals name="star_rating">
+        <item quantity="other">@string/star_rating_plural</item>
+        <item quantity="one">@string/star_rating_singular</item>
+    </plurals>
+    <plurals name="these_and_others">
+        <item quantity="other">@string/these_and_n_others</item>
+        <item quantity="one">@string/these_and_one_other</item>
+    </plurals>
+    <plurals name="translated_reviews_title">
+        <item quantity="other">@string/translated_reviews_other</item>
+        <item quantity="one">@string/translated_review_one</item>
+    </plurals>
+    <plurals name="ufc_label">
+        <item quantity="other">@string/ufc_label_other</item>
+        <item quantity="one">@string/self_string_format_bold</item>
+    </plurals>
+    <plurals name="using_machine_translation">
+        <item quantity="other">@string/using_machine_translation_plural</item>
+        <item quantity="one">@string/using_machine_translation</item>
+    </plurals>
+    <plurals name="video_count">
+        <item quantity="other">@string/video_count_other</item>
+        <item quantity="one">@string/video_count_one</item>
+    </plurals>
+    <plurals name="video_count_no_param">
+        <item quantity="other">@string/video_count_other_no_param</item>
+        <item quantity="one">@string/video_count_one_no_param</item>
+    </plurals>
+    <plurals name="write_review_stars">
+        <item quantity="other">@string/x_stars</item>
+        <item quantity="one">@string/one_star</item>
+    </plurals>
+    <plurals name="x_and_x_others_like_this">
+        <item quantity="other">@string/x_and_x_others_like_this</item>
+        <item quantity="one">@string/x_and_1_other_like_this</item>
+    </plurals>
+    <plurals name="x_comments">
+        <item quantity="other">@string/x_comments</item>
+        <item quantity="one">@string/one_comment</item>
+    </plurals>
+    <plurals name="x_compliments">
+        <item quantity="other">@string/x_compliments</item>
+        <item quantity="one">@string/one_compliment</item>
+    </plurals>
+    <plurals name="x_feet">
+        <item quantity="other">@string/x_feet</item>
+        <item quantity="one">@string/one_foot</item>
+    </plurals>
+    <plurals name="x_feet_away">
+        <item quantity="other">@string/x_feet_away</item>
+        <item quantity="one">@string/one_foot_away</item>
+    </plurals>
+    <plurals name="x_feet_short">
+        <item quantity="other">@string/x_feet_short</item>
+    </plurals>
+    <plurals name="x_kilometers">
+        <item quantity="other">@string/x_kilometers</item>
+        <item quantity="one">@string/one_kilometer</item>
+    </plurals>
+    <plurals name="x_kilometers_away">
+        <item quantity="other">@string/x_kilometers_away</item>
+        <item quantity="one">@string/one_kilometer_away</item>
+    </plurals>
+    <plurals name="x_kilometers_short">
+        <item quantity="other">@string/x_kilometers_short</item>
+    </plurals>
+    <plurals name="x_likes">
+        <item quantity="other">@string/x_likes</item>
+        <item quantity="one">@string/one_like</item>
+    </plurals>
+    <plurals name="x_likes_caps">
+        <item quantity="other">@string/x_likes_caps</item>
+        <item quantity="one">@string/one_like_caps</item>
+    </plurals>
+    <plurals name="x_meters">
+        <item quantity="other">@string/x_meters</item>
+        <item quantity="one">@string/one_meter</item>
+    </plurals>
+    <plurals name="x_meters_away">
+        <item quantity="other">@string/x_meters_away</item>
+        <item quantity="one">@string/one_meter_away</item>
+    </plurals>
+    <plurals name="x_meters_short">
+        <item quantity="other">@string/x_meters_short</item>
+    </plurals>
+    <plurals name="x_miles">
+        <item quantity="other">@string/x_miles</item>
+        <item quantity="one">@string/one_mile</item>
+    </plurals>
+    <plurals name="x_miles_away">
+        <item quantity="other">@string/x_miles_away</item>
+        <item quantity="one">@string/one_mile_away</item>
+    </plurals>
+    <plurals name="x_miles_short">
+        <item quantity="other">@string/x_miles_short</item>
+    </plurals>
+    <plurals name="x_people_like_this">
+        <item quantity="other">@string/x_people_like_this</item>
+        <item quantity="one">@string/one_person_likes_this</item>
+    </plurals>
+    <plurals name="you_and_x_others_like_this">
+        <item quantity="other">@string/you_and_x_others_like_this</item>
+        <item quantity="one">@string/you_and_x_other_like_this</item>
+    </plurals>
+</resources>

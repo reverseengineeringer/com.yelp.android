@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/social_search_checkin_callout" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/social_user_photo" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:layout_marginRight="?smallImageGapSize" android:layout_alignParentLeft="true" />
+    <TextView android:textAppearance="@style/StandardDarkText" android:id="@id/social_search_headline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/social_user_photo" />
+    <TextView android:textAppearance="@style/StandardLightText" android:id="@id/social_search_subtext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/social_user_photo" android:layout_below="@id/social_search_headline" />
+</RelativeLayout>

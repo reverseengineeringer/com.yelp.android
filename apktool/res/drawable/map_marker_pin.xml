@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <item android:state_focused="true" android:drawable="@drawable/map_marker_ad_highlighted" yelp:state_ad="true" yelp:state_numbered="false" />
+    <item android:drawable="@drawable/map_marker_ad" yelp:state_ad="true" yelp:state_numbered="false" />
+    <item android:state_focused="true" android:drawable="@drawable/map_marker_highlighted" />
+    <item android:drawable="@drawable/map_marker_ad_blank" yelp:state_ad="true" yelp:state_numbered="true" />
+    <item android:drawable="@drawable/map_marker" />
+</selector>

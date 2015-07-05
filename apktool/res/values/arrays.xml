@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_aliases_all">
+        <item>restaurants</item>
+        <item>nightlife</item>
+        <item>shopping</item>
+        <item>food</item>
+        <item>health</item>
+        <item>beautysvc</item>
+        <item>homeservices</item>
+        <item>localservices</item>
+        <item>eventservices</item>
+        <item>arts</item>
+        <item>active</item>
+        <item>professional</item>
+        <item>auto</item>
+        <item>hotelstravel</item>
+        <item>education</item>
+        <item>realestate</item>
+        <item>pets</item>
+        <item>financialservices</item>
+        <item>localflavor</item>
+        <item>publicservicesgovt</item>
+        <item>massmedia</item>
+        <item>religiousorgs</item>
+    </string-array>
+    <string-array name="category_aliases_nearby">
+        <item>restaurants</item>
+        <item>bars</item>
+        <item>coffee</item>
+        <item>MoreCategories</item>
+    </string-array>
+    <string-array name="category_aliases_popular">
+        <item>NewBusiness</item>
+        <item>PlatformDelivery</item>
+        <item>ActiveDeal</item>
+        <item>CheckInOffer</item>
+        <item>restaurants</item>
+        <item>bars</item>
+        <item>nightlife</item>
+        <item>coffee</item>
+        <item>servicestations</item>
+        <item>drugstores</item>
+        <item>shopping</item>
+        <item>Everything</item>
+    </string-array>
+    <string-array name="category_aliases_popular_real">
+        <item>restaurants</item>
+        <item>bars</item>
+        <item>nightlife</item>
+        <item>coffee</item>
+        <item>servicestations</item>
+        <item>drugstores</item>
+        <item>shopping</item>
+    </string-array>
+    <string-array name="category_aliases_popular_virtual">
+        <item>NewBusiness</item>
+        <item>PlatformDelivery</item>
+        <item>ActiveDeal</item>
+        <item>CheckInOffer</item>
+        <item>Everything</item>
+    </string-array>
+    <string-array name="category_aliases_with_menus">
+        <item>restaurants</item>
+        <item>bagels</item>
+        <item>bakeries</item>
+        <item>coffee</item>
+        <item>icecream</item>
+        <item>juicebars</item>
+        <item>streetvendors</item>
+        <item>tea</item>
+        <item>delis</item>
+    </string-array>
+    <string-array name="debug_emails">
+        <item>@string/test_em</item>
+    </string-array>
+    <string-array name="distance_filter_labels_imperial_city">
+        <item>@string/blocks_2</item>
+        <item>@string/blocks_6</item>
+        <item>@string/mi_1</item>
+        <item>@string/mi_5</item>
+    </string-array>
+    <string-array name="distance_filter_labels_imperial_non_city">
+        <item>@string/mi_pt_3</item>
+        <item>@string/mi_1</item>
+        <item>@string/mi_5</item>
+        <item>@string/mi_20</item>
+    </string-array>
+    <string-array name="distance_filter_labels_metric_city">
+        <item>@string/km_pt_25</item>
+        <item>@string/km_pt_75</item>
+        <item>@string/km_1_pt_5</item>
+        <item>@string/km_8</item>
+    </string-array>
+    <string-array name="distance_filter_labels_metric_non_city">
+        <item>@string/km_pt_5</item>
+        <item>@string/km_2</item>
+        <item>@string/km_5</item>
+        <item>@string/km_15</item>
+    </string-array>
+    <integer-array name="distance_filter_values_imperial_city">
+        <item>241</item>
+        <item>805</item>
+        <item>1609</item>
+        <item>8046</item>
+    </integer-array>
+    <integer-array name="distance_filter_values_imperial_non_city">
+        <item>483</item>
+        <item>1609</item>
+        <item>8046</item>
+        <item>32187</item>
+    </integer-array>
+    <integer-array name="distance_filter_values_metric_city">
+        <item>250</item>
+        <item>750</item>
+        <item>1500</item>
+        <item>8000</item>
+    </integer-array>
+    <integer-array name="distance_filter_values_metric_non_city">
+        <item>500</item>
+        <item>2000</item>
+        <item>5000</item>
+        <item>15000</item>
+    </integer-array>
+    <string-array name="first_to_review_congratulations">
+        <item>@string/first_to_review_congratulations_1</item>
+        <item>@string/first_to_review_congratulations_2</item>
+        <item>@string/first_to_review_congratulations_3</item>
+    </string-array>
+    <string-array name="first_to_tip_congratulations">
+        <item>@string/first_to_tip_congratulations_1</item>
+        <item>@string/first_to_tip_congratulations_2</item>
+        <item>@string/first_to_tip_congratulations_3</item>
+    </string-array>
+    <string-array name="flag_selector_countries">
+        <item>at</item>
+        <item>ar</item>
+        <item>au</item>
+        <item>be</item>
+        <item>br</item>
+        <item>ca</item>
+        <item>ch</item>
+        <item>cl</item>
+        <item>cz</item>
+        <item>de</item>
+        <item>dk</item>
+        <item>es</item>
+        <item>fi</item>
+        <item>fr</item>
+        <item>gb</item>
+        <item>hk</item>
+        <item>ie</item>
+        <item>it</item>
+        <item>jp</item>
+        <item>mx</item>
+        <item>my</item>
+        <item>nl</item>
+        <item>no</item>
+        <item>nz</item>
+        <item>ph</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>se</item>
+        <item>sg</item>
+        <item>tr</item>
+        <item>tw</item>
+        <item>us</item>
+    </string-array>
+    <string-array name="genders">
+        <item>@string/not_specified</item>
+        <item>@string/gender_male</item>
+        <item>@string/gender_female</item>
+    </string-array>
+    <string-array name="talk_categories_array">
+        <item>@string/talk_category_1</item>
+        <item>@string/talk_category_2</item>
+        <item>@string/talk_category_10</item>
+        <item>@string/talk_category_11</item>
+        <item>@string/talk_category_13</item>
+        <item>@string/talk_category_12</item>
+        <item>@string/talk_category_3</item>
+        <item>@string/talk_category_4</item>
+        <item>@string/talk_category_5</item>
+        <item>@string/talk_category_6</item>
+        <item>@string/talk_category_14</item>
+        <item>@string/talk_category_7</item>
+        <item>@string/talk_category_8</item>
+        <item>@string/talk_category_9</item>
+    </string-array>
+    <string-array name="yelp_domains">
+        <item>Yelp.at</item>
+        <item>Yelp.be</item>
+        <item>Yelp.ca</item>
+        <item>Yelp.ch</item>
+        <item>Yelp.cl</item>
+        <item>Yelp.co.jp</item>
+        <item>Yelp.co.nz</item>
+        <item>Yelp.co.uk</item>
+        <item>Yelp.com.ar</item>
+        <item>Yelp.com.au</item>
+        <item>Yelp.com.br</item>
+        <item>Yelp.com.hk</item>
+        <item>Yelp.com.mx</item>
+        <item>Yelp.com.sg</item>
+        <item>Yelp.com.tr</item>
+        <item>Yelp.com</item>
+        <item>Yelp.cz</item>
+        <item>Yelp.de</item>
+        <item>Yelp.dk</item>
+        <item>Yelp.es</item>
+        <item>Yelp.fi</item>
+        <item>Yelp.fr</item>
+        <item>Yelp.ie</item>
+        <item>Yelp.it</item>
+        <item>Yelp.nl</item>
+        <item>Yelp.no</item>
+        <item>Yelp.pl</item>
+        <item>Yelp.pt</item>
+        <item>Yelp.se</item>
+    </string-array>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/feedback_user_1" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginTop="8.0dip" />
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/feedback_user_2" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="8.0dip" android:layout_toRightOf="@id/feedback_user_1" android:layout_alignTop="@id/feedback_user_1" />
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/feedback_user_3" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="8.0dip" android:layout_toRightOf="@id/feedback_user_2" android:layout_alignTop="@id/feedback_user_1" />
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/feedback_user_4" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="8.0dip" android:layout_toRightOf="@id/feedback_user_3" android:layout_alignTop="@id/feedback_user_1" />
+</RelativeLayout>

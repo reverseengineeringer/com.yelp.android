@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableRelativeLayout android:orientation="vertical" android:id="@id/guests_container" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/LargeBoldLightText" android:id="@id/guests" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/LargeText" android:id="@id/guests_names" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/guests" />
+    <ImageView android:id="@id/details_arrow" android:paddingLeft="?largeGapSize" android:paddingRight="?smallGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+</com.yelp.android.ui.widgets.SpannableRelativeLayout>

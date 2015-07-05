@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/panel_passport_base" />
+    <TextView android:id="@id/user_media_count_overflow" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:layout_marginRight="?baseGapSize" android:drawableLeft="?passportPhotoCountDrawable" android:layout_toRightOf="@id/user_photo" android:layout_below="@id/user_friend_count" android:layout_alignBaseline="@id/user_elite" style="@style/PassportCount" />
+    <TextView android:textAppearance="@style/SmallDarkText" android:textColor="@color/gray_light" android:id="@id/user_elite" android:background="@drawable/passport_elite_icon" android:paddingLeft="?smallGapSize" android:paddingRight="?smallGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="?smallGapSize" android:singleLine="true" android:layout_toRightOf="@id/user_media_count_overflow" android:layout_below="@id/user_friend_count" android:layout_alignWithParentIfMissing="true" />
+</merge>

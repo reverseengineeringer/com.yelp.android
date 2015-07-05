@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:gravity="fill" android:src="@drawable/gold_elite_background" android:antialias="true" android:filter="true" android:tileMode="repeat"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/selector_white_rect" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/dark_divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include layout="@layout/panel_activity_feed_user_profile_segment" />
+    <include layout="@layout/panel_activity_feed_business_fullcontent_segment" />
+    <include layout="@layout/panel_activity_feed_review_segment" />
+    <View android:background="@drawable/dark_divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:background="@color/gray_businesspage_button_inactive_gradient_end" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+        <include android:id="@id/useful_button" layout="@layout/feedback_button" />
+        <include android:id="@id/funny_button" layout="@layout/feedback_button" />
+        <include android:id="@id/cool_button" layout="@layout/feedback_button" />
+    </LinearLayout>
+    <View android:background="@drawable/dark_divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

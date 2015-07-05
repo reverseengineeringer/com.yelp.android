@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:text="@string/required_information" style="?android:listSeparatorTextViewStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_name" yelp:emptyText="@string/name" style="?cellButtonStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_address" yelp:setIcon="@drawable/add_business_address_icon" yelp:emptyText="@string/address" style="?cellButtonStyle" />
+        <TextView android:text="@string/optional_information" style="?android:listSeparatorTextViewStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_categories" yelp:emptyText="@string/category" style="?cellButtonStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_open_hours" yelp:attachmentIcon="@drawable/photo_icon" yelp:emptyText="@string/hours" style="?cellButtonStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_phone_number" yelp:emptyText="@string/phone" style="?cellButtonStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_website" yelp:emptyText="@string/website" style="?cellButtonStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_menu_url" android:visibility="gone" yelp:emptyText="@string/menu_url" style="?cellButtonStyle" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/notes" yelp:emptyText="@string/notes_for_the_yelp_team" style="?cellButtonStyle" />
+    </LinearLayout>
+</ScrollView>

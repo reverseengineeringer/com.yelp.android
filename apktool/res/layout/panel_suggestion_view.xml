@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/selector_list_cell_white_gutter" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size" style="?gutterCellStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/LargeLightText" android:ellipsize="start" android:id="@id/type" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/photo" android:visibility="gone" android:layout_width="@dimen/category_search_suggest_icon_size" android:layout_height="@dimen/category_search_suggest_icon_size" android:layout_marginRight="?imageGapSize" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/term_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/type" android:layout_toRightOf="@id/photo" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true">
+        <TextView android:textAppearance="@style/HeadlineText" android:ellipsize="end" android:id="@id/term" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" />
+        <TextView android:textAppearance="@style/HeadlineText" android:ellipsize="end" android:id="@id/description" android:padding="?smallGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/term" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

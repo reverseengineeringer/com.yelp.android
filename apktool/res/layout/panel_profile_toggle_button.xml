@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableRelativeLayout android:paddingLeft="10.0dip" android:paddingTop="15.0dip" android:paddingRight="10.0dip" android:paddingBottom="15.0dip" android:clickable="true" android:descendantFocusability="beforeDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCellWithDisclosure"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.YelpToggleButton android:id="@id/notification_switch" android:background="@drawable/switch_toggle" android:clickable="false" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/on" android:textOff="@string/off" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <TextView android:textColor="@color/black_yoni" android:gravity="center|left" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/show_check_in_alerts" android:layout_toLeftOf="@id/notification_switch" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+</com.yelp.android.ui.widgets.SpannableRelativeLayout>

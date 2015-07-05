@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/instructions" android:text="@string/how_would_you_like_to_provide_the_correct_hours" style="?flatCellStyle" />
+    <TextView android:id="@id/description" android:text="@string/type_in_a_description" android:drawableLeft="@drawable/draft_icon" android:drawablePadding="20.0dip" style="?cellButtonStyle" />
+    <TextView android:id="@id/photo" android:text="@string/send_a_photo_of_hours" android:drawableLeft="@drawable/photo_icon" style="?cellButtonStyle" />
+</LinearLayout>

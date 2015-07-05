@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/image" android:layout_width="@dimen/large_photo_size" android:layout_height="wrap_content" android:src="@drawable/movie_placeholder" android:adjustViewBounds="true" yelp:forceRoundingMode="none" />
+    <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:includeFontPadding="false" android:layout_toRightOf="@id/image" />
+    <TextView android:textAppearance="@style/LargeText" android:id="@id/rating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_below_textview" android:text="@string/movie_rating" android:layout_below="@id/title" android:layout_alignLeft="@id/title" />
+    <TextView android:textAppearance="@style/LargeText" android:id="@id/runtime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_below_textview" android:layout_below="@id/rating" android:layout_alignLeft="@id/title" />
+    <TextView android:textAppearance="@style/LargeLightText" android:id="@id/showtimes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_below_textview" android:layout_below="@id/runtime" android:layout_alignLeft="@id/title" />
+</RelativeLayout>

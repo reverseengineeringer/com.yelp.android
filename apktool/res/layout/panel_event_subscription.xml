@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/are_you_interested" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/event_are_you_interested" />
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:orientation="vertical" android:id="@id/subscription_options" android:padding="?baseGapSize" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="?sublistCell">
+        <View android:id="@id/subscription_options_center_marker" android:layout_width="?baseGapSize" android:layout_height="0.0dip" android:layout_centerHorizontal="true" />
+        <Button android:textAppearance="@style/SubtitleDarkText" android:id="@id/subscription_im_in" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/event_im_in" android:layout_toLeftOf="@id/subscription_options_center_marker" android:layout_below="@id/are_you_interested" />
+        <Button android:textAppearance="@style/SubtitleDarkText" android:id="@id/subscription_sounds_cool" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/event_sounds_cool" android:layout_toRightOf="@id/subscription_options_center_marker" android:layout_below="@id/are_you_interested" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+    <com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="horizontal" android:id="@id/subscription_status" android:paddingTop="0.0dip" android:paddingBottom="0.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="left" style="?sublistCell">
+        <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/subscription_you_replied_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/event_you_replied" android:layout_weight="0.0" />
+        <Spinner android:id="@id/subscription_you_replied_spinner" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </com.yelp.android.ui.widgets.SpannableLinearLayout>
+    <com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="horizontal" android:id="@id/subscription_reminder" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom" style="?sublistCell">
+        <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/subscription_reminder_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/event_send_reminder" android:layout_weight="1.0" />
+        <com.yelp.android.ui.widgets.YelpToggleButton android:id="@id/subscription_reminder_toggle" android:background="@drawable/switch_toggle" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/on" android:textOff="@string/off" />
+    </com.yelp.android.ui.widgets.SpannableLinearLayout>
+</LinearLayout>

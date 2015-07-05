@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contextual_search_bar_height">48.0dip</dimen>
+    <dimen name="contextual_search_bar_margin">10.0dip</dimen>
+    <dimen name="search_bar_animation_offset">68.0dip</dimen>
+</resources>

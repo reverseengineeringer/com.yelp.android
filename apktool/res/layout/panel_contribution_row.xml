@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/photo" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="6.0dip" android:layout_marginRight="?imageGapSize" android:scaleType="fitCenter" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textAppearance="@style/SubtitleDarkText" android:gravity="center|left|top" android:id="@id/panel_contribution_business_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-2.0dip" android:includeFontPadding="false" android:layout_toRightOf="@id/photo" />
+    <TextView android:textAppearance="@style/LargeText" android:id="@id/panel_contribution_address" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/panel_contribution_business_name" android:layout_alignLeft="@id/panel_contribution_business_name" />
+</RelativeLayout>

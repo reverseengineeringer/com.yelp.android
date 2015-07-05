@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/panel_pulled_photo" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:layout_alignBottom="@id/button_bar" android:layout_alignParentTop="true" yelp:forceRoundingMode="none" />
+    <TextView android:textAppearance="@style/StandardWhiteText" android:gravity="center" android:id="@id/panel_release_to_view" android:background="@drawable/release_to_view_background" android:padding="?baseGapSize" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/release_to_view" android:includeFontPadding="false" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <ViewStub android:id="@id/panel_pulled_content" android:inflatedId="@id/panel_pulled_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <include android:id="@id/button_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize" android:layout_below="@id/panel_pulled_content" layout="@layout/businesspage_button_bar" />
+</merge>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/white" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell">
+        <com.yelp.android.ui.activities.profile.EliteBadge android:gravity="center_vertical" android:id="@id/badge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+        <TextView android:gravity="center_vertical" android:id="@id/elite_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawableLeft="@drawable/profile_years_elite_icon" android:drawablePadding="?baseGapSize" android:layout_toLeftOf="@id/badge" android:layout_alignBaseline="@id/badge" android:layout_alignParentLeft="true" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+</LinearLayout>

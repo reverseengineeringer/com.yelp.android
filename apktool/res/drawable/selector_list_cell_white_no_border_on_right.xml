@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <item android:state_enabled="true" android:state_pressed="true" android:drawable="@drawable/selected_cell_gradient" />
+    <item android:state_enabled="true" android:state_selected="true" android:drawable="@drawable/selected_cell_gradient" />
+    <item android:state_focused="true" android:state_enabled="true" android:drawable="@drawable/selected_cell_gradient" />
+    <item android:state_enabled="false" android:state_selected="true" yelp:state_bottom="true">
+        <color android:color="@android:color/white" />
+    </item>
+    <item android:state_focused="false" android:state_enabled="true" yelp:state_bottom="true">
+        <color android:color="@android:color/white" />
+    </item>
+    <item android:state_focused="true" android:state_enabled="false" yelp:state_bottom="true">
+        <color android:color="@android:color/white" />
+    </item>
+    <item android:state_enabled="false" yelp:state_bottom="true">
+        <color android:color="@color/white_dirty_snow" />
+    </item>
+    <item android:state_enabled="false" android:state_selected="true" android:drawable="@drawable/white_cell_with_gutter" />
+    <item android:state_focused="false" android:state_enabled="true" android:drawable="@drawable/white_cell_with_gutter" />
+    <item android:state_focused="true" android:state_enabled="false" android:drawable="@drawable/white_cell_with_gutter" />
+    <item android:state_enabled="false" android:drawable="@drawable/gray_cell_with_bottom_and_right_border" />
+</selector>

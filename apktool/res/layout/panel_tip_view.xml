@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/tip_view_panel" android:background="@drawable/selector_list_cell_clear_no_border_on_right" android:paddingLeft="?baseGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="0.0dip" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/panel_tip_info" />
+    <include layout="@layout/panel_tip_bubble_buttons" />
+    <View android:id="@id/tip_divider" android:background="@color/gray_light_silver_divider" android:layout_width="fill_parent" android:layout_height="@dimen/border" android:layout_marginTop="?baseGapSize" android:layout_below="@id/compliment_box" />
+</com.yelp.android.ui.widgets.SpannableRelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:id="@id/review_overview_content_wrapper" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+        <com.yelp.android.ui.widgets.SpannableFrameLayout android:id="@id/review_overview_message_wrapper" android:background="@drawable/selector_yellow_rounded_rect" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textAppearance="@style/StandardText" android:gravity="center" android:id="@id/review_overview_message" android:paddingLeft="?largeGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?largeGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/only_most_recent_rating" />
+        </com.yelp.android.ui.widgets.SpannableFrameLayout>
+        <com.yelp.android.ui.widgets.SpannableFrameLayout android:id="@id/review_overview_stars_holder" android:background="@anim/selector_white_rounded_rect_top_transition" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.yelp.android.ui.activities.reviews.StarsView android:layout_gravity="center" android:id="@id/review_overview_stars" android:padding="?imageGapSize" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/review_stars_0_inline" android:contentDescription="@string/review_stars_number" />
+        </com.yelp.android.ui.widgets.SpannableFrameLayout>
+        <com.yelp.android.ui.widgets.SpannableFrameLayout android:id="@id/review_overview_text_wrapper" android:background="@drawable/selector_white_rounded_rect_inactive" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ScrollView android:id="@id/review_overview_text_scrollview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+                <TextView android:textAppearance="@style/LargeText" android:textColorHint="@color/gray_yoni_light_text" android:gravity="top" android:id="@id/review_overview_text" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/review_ghost_text" />
+            </ScrollView>
+        </com.yelp.android.ui.widgets.SpannableFrameLayout>
+    </com.yelp.android.ui.widgets.WidgetSpan>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/review_overview_share_wrapper" android:background="@drawable/gray_rounded_rect" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize">
+        <ToggleButton android:id="@id/review_overview_twitter_share_button" android:background="@drawable/share_twitter_toggle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="30.0dip" style="@style/Widget.Button.Toggle.NoText" />
+        <ToggleButton android:id="@id/review_overview_facebook_share_button" android:background="@drawable/share_facebook_toggle" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Widget.Button.Toggle.NoText" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/refresh" android:visible="false" android:title="@string/refresh" yelp:showAsAction="always" />
+    <item android:id="@id/add_review" android:title="@string/add_review" />
+    <item android:id="@id/add_media" android:title="@string/add_media" />
+    <item android:icon="@drawable/action_bar_check_in_icon" android:id="@id/checkin" android:title="@string/action_check_in" />
+    <item android:id="@id/add_tip" android:title="@string/add_tip" />
+    <item android:icon="@drawable/action_bar_bookmark_icon" android:id="@id/bookmark" android:title="@string/action_bookmark" />
+    <item android:id="@id/call" android:title="@string/call" />
+    <item android:id="@id/edit_business" android:title="@string/edit_business" />
+    <item android:id="@id/save_business" android:title="@string/save_business" />
+    <item android:id="@id/share" android:title="@string/share" />
+</menu>

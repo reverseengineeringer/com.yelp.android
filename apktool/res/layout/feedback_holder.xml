@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:drawable/menuitem_background" android:padding="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="2.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/thumb_image" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginTop="4.0dip" android:src="@drawable/thumb_red_small" android:contentDescription="@null" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/link_color" android:id="@id/feedback_count" android:paddingLeft="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/thumb_image" android:layout_alignTop="@id/thumb_image" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/facebook" yelp:preferenceSubtitleText="@string/facebook_share_description" yelp:preferenceKey="@string/key_facebook_share" yelp:preferenceDefault="false" />
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/twitter" yelp:preferenceSubtitleText="@string/twitter_share_description" yelp:preferenceKey="@string/key_twitter_share" yelp:preferenceDefault="false" />
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/auto_award_sharing" yelp:preferenceSubtitleText="@string/auto_award_sharing_description" yelp:preferenceKey="@string/key_share_awards" />
+</merge>

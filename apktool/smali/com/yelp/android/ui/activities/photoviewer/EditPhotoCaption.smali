@@ -1,0 +1,560 @@
+.class public Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;
+.super Lcom/yelp/android/ui/activities/support/YelpActivity;
+.source "EditPhotoCaption.java"
+
+# interfaces
+.implements Lcom/yelp/android/ui/activities/addphoto/g;
+
+
+# instance fields
+.field private a:Lcom/yelp/android/serializable/YelpBusiness;
+
+.field private b:Lcom/yelp/android/serializable/Photo;
+
+.field private c:Ljava/lang/String;
+
+.field private d:Landroid/app/AlertDialog;
+
+.field private e:Lcom/yelp/android/appdata/webrequests/bn;
+
+.field private final f:Lcom/yelp/android/av/i;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .prologue
+    .line 39
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
+
+    .line 171
+    new-instance v0, Lcom/yelp/android/ui/activities/photoviewer/s;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/photoviewer/s;-><init>(Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->f:Lcom/yelp/android/av/i;
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;)Landroid/app/AlertDialog;
+    .locals 1
+
+    .prologue
+    .line 39
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    return-object v0
+.end method
+
+.method public static a(Landroid/content/Context;Lcom/yelp/android/serializable/Photo;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+    .locals 2
+
+    .prologue
+    .line 56
+    new-instance v0, Landroid/content/Intent;
+
+    const-class v1, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;
+
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    .line 57
+    const-string/jumbo v1, "extra.photo"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    .line 58
+    const-string/jumbo v1, "extra.business"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    .line 59
+    return-object v0
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 39
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method private b()V
+    .locals 4
+
+    .prologue
+    .line 150
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c()V
+
+    .line 151
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPhotoCaptionEditSaved:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v1, "photo_id"
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Photo;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Ljava/util/Collections;->singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+
+    .line 153
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/bn;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Photo;->getId()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->f:Lcom/yelp/android/av/i;
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/appdata/webrequests/bn;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/av/i;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->e:Lcom/yelp/android/appdata/webrequests/bn;
+
+    .line 154
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->e:Lcom/yelp/android/appdata/webrequests/bn;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/bn;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 155
+    return-void
+.end method
+
+.method static synthetic c(Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;)Lcom/yelp/android/serializable/Photo;
+    .locals 1
+
+    .prologue
+    .line 39
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    return-object v0
+.end method
+
+.method private c()V
+    .locals 2
+
+    .prologue
+    .line 158
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    if-nez v0, :cond_0
+
+    .line 159
+    new-instance v0, Lcom/yelp/android/ui/dialogs/bn;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/bn;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    .line 160
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    const v1, 0x7f070492
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
+
+    .line 161
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setCancelable(Z)V
+
+    .line 163
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+
+    .line 164
+    return-void
+.end method
+
+.method private d()Landroid/support/v4/app/Fragment;
+    .locals 3
+
+    .prologue
+    .line 167
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->getBusinessId()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Photo;->getThumbnailUrl()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Photo;->getCaption()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/activities/addphoto/AddCaptionFragment;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/ui/activities/addphoto/AddCaptionFragment;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public a()V
+    .locals 0
+
+    .prologue
+    .line 126
+    return-void
+.end method
+
+.method public a(Ljava/lang/String;Ljava/util/List;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 113
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c:Ljava/lang/String;
+
+    .line 114
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0d0017
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    .line 115
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-le v1, v0, :cond_0
+
+    .line 116
+    const v1, 0x7f070463
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v2, v3
+
+    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->showInfoDialog(Ljava/lang/CharSequence;)V
+
+    .line 120
+    :goto_0
+    return-void
+
+    .line 119
+    :cond_0
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b()V
+
+    goto :goto_0
+.end method
+
+.method public getIri()Lcom/yelp/android/analytics/iris/ViewIri;
+    .locals 1
+
+    .prologue
+    .line 146
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+    .locals 1
+
+    .prologue
+    .line 39
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public onBackPressed()V
+    .locals 3
+
+    .prologue
+    .line 130
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPhotoCaptionEditCanceled:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v1, "photo_id"
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Photo;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Ljava/util/Collections;->singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+
+    .line 132
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onBackPressed()V
+
+    .line 133
+    return-void
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 3
+
+    .prologue
+    const v2, 0x7f0c01d4
+
+    .line 64
+    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
+
+    .line 65
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    .line 66
+    const-string/jumbo v0, "extra.photo"
+
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Photo;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->b:Lcom/yelp/android/serializable/Photo;
+
+    .line 67
+    const-string/jumbo v0, "extra.business"
+
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->a:Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 68
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->a:Lcom/yelp/android/serializable/YelpBusiness;
+
+    if-eqz v0, :cond_2
+
+    .line 69
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->a:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->setTitle(Ljava/lang/CharSequence;)V
+
+    .line 74
+    :goto_0
+    if-eqz p1, :cond_0
+
+    .line 75
+    const-string/jumbo v0, "saved_caption"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c:Ljava/lang/String;
+
+    .line 77
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentById(I)Landroid/support/v4/app/Fragment;
+
+    move-result-object v0
+
+    .line 78
+    if-nez v0, :cond_1
+
+    .line 79
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+
+    move-result-object v0
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d()Landroid/support/v4/app/Fragment;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+
+    .line 84
+    :cond_1
+    return-void
+
+    .line 71
+    :cond_2
+    const v0, 0x7f070225
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->setTitle(I)V
+
+    goto :goto_0
+.end method
+
+.method public onPause()V
+    .locals 2
+
+    .prologue
+    .line 98
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
+
+    .line 99
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_0
+
+    .line 100
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->d:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    .line 102
+    :cond_0
+    const-string/jumbo v0, "edit_caption"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->e:Lcom/yelp/android/appdata/webrequests/bn;
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->freezeRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 103
+    return-void
+.end method
+
+.method public onResume()V
+    .locals 3
+
+    .prologue
+    .line 88
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
+
+    .line 89
+    const-string/jumbo v0, "edit_caption"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->e:Lcom/yelp/android/appdata/webrequests/bn;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->f:Lcom/yelp/android/av/i;
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/bn;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->e:Lcom/yelp/android/appdata/webrequests/bn;
+
+    .line 91
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->e:Lcom/yelp/android/appdata/webrequests/bn;
+
+    if-eqz v0, :cond_0
+
+    .line 92
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c()V
+
+    .line 94
+    :cond_0
+    return-void
+.end method
+
+.method protected onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+
+    .prologue
+    .line 107
+    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    .line 108
+    const-string/jumbo v0, "saved_caption"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c:Ljava/lang/String;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 109
+    return-void
+.end method
+
+.method public onYesNoDialogSelection(ZI)V
+    .locals 2
+
+    .prologue
+    .line 138
+    if-eqz p1, :cond_0
+
+    .line 140
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->c:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/photoviewer/EditPhotoCaption;->a(Ljava/lang/String;Ljava/util/List;)V
+
+    .line 142
+    :cond_0
+    return-void
+.end method

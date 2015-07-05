@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/review_complete_edit" android:title="@string/edit" yelp:showAsAction="ifRoom" />
+    <item android:id="@id/review_complete_close" android:title="@string/close" yelp:showAsAction="ifRoom" />
+</menu>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:paddingTop="@dimen/half_gap_between_images" android:paddingBottom="@dimen/half_gap_between_images" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/photoView1" layout="@layout/panel_photo_grid_small" />
+    <View android:id="@id/spacer" android:layout_width="@dimen/total_gap_between_images" android:layout_height="fill_parent" />
+    <include android:id="@id/photoView2" layout="@layout/panel_photo_grid_small" />
+</LinearLayout>

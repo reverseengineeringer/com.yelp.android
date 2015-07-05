@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/add_category" android:drawableLeft="@drawable/icon_green_plus_sign" android:drawablePadding="@dimen/base_container_margin" style="?cellButtonStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

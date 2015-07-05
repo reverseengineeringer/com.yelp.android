@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.util.ScrollToLoadListView android:id="@id/single_conversation_fragment_list" android:layout_width="fill_parent" android:layout_height="0.0dip" android:transcriptMode="normal" android:divider="@null" android:layout_weight="1.0" yelp:topLoading="true" style="?listViewStyle" />
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/panel_input_box" />
+</LinearLayout>

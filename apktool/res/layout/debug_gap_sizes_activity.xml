@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/AdPillText" android:textSize="8.0sp" android:gravity="center" android:background="@color/black_yoni" android:layout_width="fill_parent" android:layout_height="@dimen/default_base_gap_size" android:text="Base Gap Size 5dp" />
+    <TextView android:textAppearance="@style/AdPillText" android:gravity="center" android:background="@color/blue_baron_background" android:layout_width="fill_parent" android:layout_height="@dimen/default_large_gap_size" android:text="Large Gap Size 15dp" />
+    <TextView android:textAppearance="@style/AdPillText" android:gravity="center" android:background="@color/green_bamboo_leaf" android:layout_width="fill_parent" android:layout_height="@dimen/default_huge_gap_size" android:text="Huge Gap Size 25dp" />
+    <TextView android:textAppearance="@style/AdPillText" android:textSize="7.0sp" android:background="@color/gray_cool_magma" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:layout_margin="@dimen/default_large_gap_size" android:text="Small Photo Size 34dp" android:contentDescription="@null" />
+    <TextView android:textAppearance="@style/AdPillText" android:textSize="9.0sp" android:background="@color/gray_cool_magma" android:layout_width="@dimen/thumbnail_photo_size" android:layout_height="@dimen/thumbnail_photo_size" android:layout_margin="@dimen/default_large_gap_size" android:text="Thumbnail Photo Size 40dp" android:contentDescription="@null" />
+</LinearLayout>

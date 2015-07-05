@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.DinoListView android:id="@id/dino_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@null" android:dividerHeight="0.0dip" />
+    <ImageView android:id="@id/falling_dino" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dino_animation_freefall_carmen" android:scaleType="matrix" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+    <Button android:textAppearance="@style/SubtitleText" android:gravity="center" android:id="@id/take_me_back_button" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_large_gap_size" android:text="@string/take_me_back" android:layout_alignParentBottom="true" android:textAllCaps="true" />
+</RelativeLayout>

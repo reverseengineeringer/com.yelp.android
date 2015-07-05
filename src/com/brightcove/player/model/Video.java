@@ -1,0 +1,153 @@
+package com.brightcove.player.model;
+
+import android.util.Log;
+import com.brightcove.player.media.DeliveryType;
+import com.brightcove.player.util.ErrorUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
+public class Video
+  extends MetadataObject
+{
+  private List<CuePoint> cuePoints;
+  private Map<DeliveryType, SourceCollection> sourceCollectionMap;
+  
+  public Video(Map<String, Object> paramMap)
+  {
+    super(paramMap);
+  }
+  
+  public Video(Map<String, Object> paramMap, Set<SourceCollection> paramSet)
+  {
+    super(paramMap);
+    if (paramSet == null) {
+      throw new IllegalArgumentException(ErrorUtil.getMessage("sourceCollectionsRequired"));
+    }
+    paramMap = new HashMap();
+    paramSet = paramSet.iterator();
+    while (paramSet.hasNext())
+    {
+      SourceCollection localSourceCollection = (SourceCollection)paramSet.next();
+      if (paramMap.containsKey(localSourceCollection.getDeliveryType())) {
+        throw new IllegalStateException(ErrorUtil.getMessage("duplicateDeliveryTypes"));
+      }
+      paramMap.put(localSourceCollection.getDeliveryType(), localSourceCollection);
+    }
+    sourceCollectionMap = paramMap;
+  }
+  
+  public Video(Map<String, Object> paramMap, Set<SourceCollection> paramSet, List<CuePoint> paramList)
+  {
+    this(paramMap, paramSet);
+    if (paramList == null) {
+      throw new IllegalArgumentException(ErrorUtil.getMessage("cuePointsRequired"));
+    }
+    cuePoints = paramList;
+  }
+  
+  public static Video createVideo(String paramString)
+  {
+    if (paramString == null) {
+      throw new IllegalArgumentException(ErrorUtil.getMessage("uriRequired"));
+    }
+    DeliveryType localDeliveryType = DeliveryType.UNKNOWN;
+    String str = paramString.split("[?]")[0].toLowerCase(Locale.getDefault());
+    if (str.endsWith(".mp4")) {}
+    for (localDeliveryType = DeliveryType.MP4;; localDeliveryType = DeliveryType.HLS) {
+      do
+      {
+        return createVideo(paramString, localDeliveryType);
+      } while ((!str.endsWith(".m3u")) && (!str.endsWith(".m3u8")));
+    }
+  }
+  
+  public static Video createVideo(String paramString, DeliveryType paramDeliveryType)
+  {
+    if (paramString == null) {
+      throw new IllegalArgumentException(ErrorUtil.getMessage("uriRequired"));
+    }
+    HashSet localHashSet = new HashSet();
+    localHashSet.add(new SourceCollection(new Source(paramString, paramDeliveryType), paramDeliveryType));
+    return new Video(new HashMap(), localHashSet, new ArrayList());
+  }
+  
+  public List<CuePoint> getCuePoints()
+  {
+    return cuePoints;
+  }
+  
+  public int getDuration()
+  {
+    int i = 0;
+    if (properties.containsKey("duration")) {}
+    try
+    {
+      i = Integer.parseInt(properties.get("duration").toString());
+      return i;
+    }
+    catch (NumberFormatException localNumberFormatException)
+    {
+      Log.e(TAG, "Invalid number value seen for duration in Video: " + properties.get("duration"));
+    }
+    return 0;
+  }
+  
+  public String getId()
+  {
+    String str = "";
+    if (properties.containsKey("id")) {
+      str = properties.get("id").toString();
+    }
+    return str;
+  }
+  
+  public Map<DeliveryType, SourceCollection> getSourceCollections()
+  {
+    return sourceCollectionMap;
+  }
+  
+  public String toString()
+  {
+    int j = 0;
+    StringBuilder localStringBuilder = new StringBuilder();
+    localStringBuilder.append("Video{");
+    if (properties.get("name") != null)
+    {
+      localStringBuilder.append("name: \"");
+      localStringBuilder.append(properties.get("name"));
+      localStringBuilder.append("\"");
+    }
+    if (properties.get("shortDescription") != null)
+    {
+      localStringBuilder.append(", shortDescription: \"");
+      localStringBuilder.append(properties.get("shortDescription"));
+      localStringBuilder.append("\"");
+    }
+    localStringBuilder.append(", sourceCollections: ");
+    if (sourceCollectionMap != null) {}
+    for (int i = sourceCollectionMap.size();; i = 0)
+    {
+      localStringBuilder.append(i);
+      localStringBuilder.append(", cuePoints: ");
+      i = j;
+      if (cuePoints != null) {
+        i = cuePoints.size();
+      }
+      localStringBuilder.append(i);
+      localStringBuilder.append("}");
+      return localStringBuilder.toString();
+    }
+  }
+}
+
+/* Location:
+ * Qualified Name:     com.brightcove.player.model.Video
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

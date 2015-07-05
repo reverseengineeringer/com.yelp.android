@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <item android:state_pressed="true" yelp:state_left="true">
+        <shape>
+            <corners android:topLeftRadius="@dimen/corner_radius" android:topRightRadius="0.0dip" android:bottomLeftRadius="@dimen/left_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/left_button_bottom_right_radius_corner" />
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+        </shape>
+    </item>
+    <item android:state_checked="true" yelp:state_left="true">
+        <shape>
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="@dimen/corner_radius" android:bottomLeftRadius="@dimen/right_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/right_button_bottom_right_radius_corner" />
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+        </shape>
+    </item>
+    <item yelp:state_left="true">
+        <shape>
+            <corners android:topLeftRadius="@dimen/corner_radius" android:topRightRadius="0.0dip" android:bottomLeftRadius="@dimen/left_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/left_button_bottom_right_radius_corner" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_bubble_border" />
+            <gradient android:startColor="@android:color/white" android:endColor="@color/gray_businesspage_button_inactive_gradient_end" android:angle="@integer/gradient_start_top" />
+        </shape>
+    </item>
+    <item android:state_pressed="true" yelp:state_right="true">
+        <shape>
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="@dimen/corner_radius" android:bottomLeftRadius="@dimen/right_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/right_button_bottom_right_radius_corner" />
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+        </shape>
+    </item>
+    <item android:state_checked="true" yelp:state_right="true">
+        <shape>
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="@dimen/corner_radius" android:bottomLeftRadius="@dimen/right_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/right_button_bottom_right_radius_corner" />
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+        </shape>
+    </item>
+    <item yelp:state_right="true">
+        <shape>
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="@dimen/corner_radius" android:bottomLeftRadius="@dimen/right_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/right_button_bottom_right_radius_corner" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_bubble_border" />
+            <gradient android:startColor="@android:color/white" android:endColor="@color/gray_businesspage_button_inactive_gradient_end" android:angle="@integer/gradient_start_top" />
+        </shape>
+    </item>
+    <item android:state_pressed="true" yelp:state_middle="true">
+        <shape>
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+        </shape>
+    </item>
+    <item android:state_checked="true" yelp:state_middle="true">
+        <shape>
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="@dimen/corner_radius" android:bottomLeftRadius="@dimen/right_button_bottom_left_radius_corner" android:bottomRightRadius="@dimen/right_button_bottom_right_radius_corner" />
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+        </shape>
+    </item>
+    <item yelp:state_middle="true">
+        <shape>
+            <gradient android:startColor="@android:color/white" android:endColor="@color/gray_businesspage_button_inactive_gradient_end" android:angle="@integer/gradient_start_top" />
+            <stroke android:width="@dimen/border" android:color="@color/gray_bubble_border" />
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+        </shape>
+    </item>
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@color/gray_button_bar_pressed_color_bottom" android:endColor="@color/gray_mid_light" android:angle="@integer/gradient_start_bottom" />
+        </shape>
+    </item>
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/gray_stroke_depressed" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@color/gray_mid_light" android:endColor="@color/gray_button_bar_pressed_color_bottom" android:angle="@integer/gradient_start_top" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="@dimen/border" android:color="@color/gray_bubble_border" />
+            <corners android:radius="@dimen/corner_radius" />
+            <gradient android:startColor="@android:color/white" android:endColor="@color/gray_businesspage_button_inactive_gradient_end" android:angle="@integer/gradient_start_top" />
+        </shape>
+    </item>
+</selector>

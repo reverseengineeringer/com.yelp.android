@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:paddingLeft="?leftGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center" android:id="@id/businesspage_request_error_text" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/information_error" />
+    <RelativeLayout android:id="@id/businesspage_retry_button" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:attr/buttonStyle">
+        <TextView android:textAppearance="@style/LargeDarkText" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/retry" android:includeFontPadding="false" android:drawablePadding="?baseGapSize" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</LinearLayout>

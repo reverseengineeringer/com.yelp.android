@@ -1,0 +1,431 @@
+.class public abstract Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;
+.super Ljava/lang/Object;
+.source "MergedQueue.java"
+
+# interfaces
+.implements Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+
+# instance fields
+.field a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+.field b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+.field final c:Ljava/util/Comparator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Comparator",
+            "<",
+            "Lcom/path/android/jobqueue/b;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field final d:Ljava/util/Comparator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Comparator",
+            "<",
+            "Lcom/path/android/jobqueue/b;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(ILjava/util/Comparator;Ljava/util/Comparator;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/Comparator",
+            "<",
+            "Lcom/path/android/jobqueue/b;",
+            ">;",
+            "Ljava/util/Comparator",
+            "<",
+            "Lcom/path/android/jobqueue/b;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 26
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 27
+    iput-object p2, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->c:Ljava/util/Comparator;
+
+    .line 28
+    iput-object p3, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->d:Ljava/util/Comparator;
+
+    .line 29
+    sget-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S0:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    invoke-virtual {p0, v0, p1, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;ILjava/util/Comparator;)Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    .line 30
+    sget-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S1:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    invoke-virtual {p0, v0, p1, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;ILjava/util/Comparator;)Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    .line 31
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()I
+    .locals 2
+
+    .prologue
+    .line 167
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method protected a(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;",
+            "Ljava/util/Collection",
+            "<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Lcom/path/android/jobqueue/b;"
+        }
+    .end annotation
+
+    .prologue
+    .line 51
+    sget-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S0:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    if-ne p1, v0, :cond_0
+
+    .line 52
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+
+    move-result-object v0
+
+    .line 54
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method public a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection",
+            "<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Lcom/path/android/jobqueue/b;"
+        }
+    .end annotation
+
+    .prologue
+    .line 114
+    :goto_0
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+
+    move-result-object v1
+
+    .line 116
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, v1}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->c(Lcom/path/android/jobqueue/b;)Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S0:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    if-eq v0, v2, :cond_0
+
+    .line 117
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, v1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Lcom/path/android/jobqueue/b;)Z
+
+    .line 118
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, v1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->b(Lcom/path/android/jobqueue/b;)Z
+
+    goto :goto_0
+
+    .line 121
+    :cond_0
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+
+    move-result-object v0
+
+    .line 123
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, v0}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->c(Lcom/path/android/jobqueue/b;)Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S1:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    if-eq v2, v3, :cond_1
+
+    .line 124
+    iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v1, v0}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Lcom/path/android/jobqueue/b;)Z
+
+    .line 125
+    iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v1, v0}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->b(Lcom/path/android/jobqueue/b;)Z
+
+    goto :goto_0
+
+    .line 128
+    :cond_1
+    if-nez v1, :cond_3
+
+    .line 138
+    :cond_2
+    :goto_1
+    return-object v0
+
+    .line 131
+    :cond_3
+    if-nez v0, :cond_4
+
+    move-object v0, v1
+
+    .line 132
+    goto :goto_1
+
+    .line 134
+    :cond_4
+    iget-object v2, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->d:Ljava/util/Comparator;
+
+    invoke-interface {v2, v1, v0}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v2
+
+    .line 135
+    const/4 v3, -0x1
+
+    if-ne v2, v3, :cond_2
+
+    move-object v0, v1
+
+    .line 136
+    goto :goto_1
+.end method
+
+.method public a(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;JLjava/util/Collection;)Lcom/path/android/jobqueue/nonPersistentQueue/b;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;",
+            "J",
+            "Ljava/util/Collection",
+            "<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Lcom/path/android/jobqueue/nonPersistentQueue/b;"
+        }
+    .end annotation
+
+    .prologue
+    .line 189
+    sget-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S0:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    if-ne p1, v0, :cond_0
+
+    .line 190
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p2, p3, p4}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(JLjava/util/Collection;)Lcom/path/android/jobqueue/nonPersistentQueue/b;
+
+    move-result-object v0
+
+    .line 192
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p2, p3, p4}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(JLjava/util/Collection;)Lcom/path/android/jobqueue/nonPersistentQueue/b;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method protected abstract a(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;ILjava/util/Comparator;)Lcom/path/android/jobqueue/nonPersistentQueue/c;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;",
+            "I",
+            "Ljava/util/Comparator",
+            "<",
+            "Lcom/path/android/jobqueue/b;",
+            ">;)",
+            "Lcom/path/android/jobqueue/nonPersistentQueue/c;"
+        }
+    .end annotation
+.end method
+
+.method public a(Lcom/path/android/jobqueue/b;)Z
+    .locals 2
+
+    .prologue
+    .line 62
+    invoke-virtual {p0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->c(Lcom/path/android/jobqueue/b;)Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    move-result-object v0
+
+    .line 63
+    sget-object v1, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S0:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    if-ne v0, v1, :cond_0
+
+    .line 64
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Lcom/path/android/jobqueue/b;)Z
+
+    move-result v0
+
+    .line 67
+    :goto_0
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->a(Lcom/path/android/jobqueue/b;)Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public b(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;Ljava/util/Collection;)Lcom/path/android/jobqueue/nonPersistentQueue/b;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;",
+            "Ljava/util/Collection",
+            "<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Lcom/path/android/jobqueue/nonPersistentQueue/b;"
+        }
+    .end annotation
+
+    .prologue
+    .line 197
+    sget-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S0:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+
+    if-ne p1, v0, :cond_0
+
+    .line 198
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->b(Ljava/util/Collection;)Lcom/path/android/jobqueue/nonPersistentQueue/b;
+
+    move-result-object v0
+
+    .line 200
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->b(Ljava/util/Collection;)Lcom/path/android/jobqueue/nonPersistentQueue/b;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method public b(Lcom/path/android/jobqueue/b;)Z
+    .locals 1
+
+    .prologue
+    .line 159
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->b:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->b(Lcom/path/android/jobqueue/b;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a:Lcom/path/android/jobqueue/nonPersistentQueue/c;
+
+    invoke-interface {v0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/c;->b(Lcom/path/android/jobqueue/b;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method protected abstract c(Lcom/path/android/jobqueue/b;)Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+.end method

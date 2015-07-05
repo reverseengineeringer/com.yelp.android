@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:opacity="transparent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="3.0dip">
+        <shape>
+            <gradient android:startColor="@color/transparent_yoni_black" android:endColor="@android:color/transparent" android:angle="@integer/gradient_start_bottom" android:centerY="-4.0" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/edit_tip" android:title="@string/title_tip_edit" yelp:showAsAction="never" />
+    <item android:id="@id/business" android:title="@string/nav_business" yelp:showAsAction="ifRoom" />
+</menu>

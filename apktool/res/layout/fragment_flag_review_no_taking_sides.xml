@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/no_taking_sides_title" android:background="@null" android:text="@string/no_taking_sides" style="?minorListSeparatorTextViewStyle" />
+    <com.yelp.android.ui.widgets.SpannedTextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/no_taking_sides_message_text" yelp:position="bottom|left" style="?sublistCell" />
+</LinearLayout>

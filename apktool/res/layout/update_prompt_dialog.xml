@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/edit_name" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/dialog_title_gray" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="@dimen/panel_business_info_window_width">
+        <TextView android:id="@id/update_message" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:drawableTop="@drawable/dino_sherlock" android:drawablePadding="?baseGapSize" />
+    </ScrollView>
+    <Button android:textAppearance="@style/SubtitleDarkText" android:gravity="center" android:id="@id/update_button" android:background="@drawable/button_white_gray_border" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="?baseGapSize" android:layout_marginRight="?baseGapSize" android:text="@string/update" />
+    <Button android:id="@id/remind_me_later_button" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:text="@string/remind_me_later" style="@style/TransparentButton" />
+</LinearLayout>

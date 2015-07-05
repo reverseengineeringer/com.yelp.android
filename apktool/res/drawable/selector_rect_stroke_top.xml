@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:left="-1.0px" android:right="-1.0px" android:bottom="-1.0px">
+                <shape>
+                    <stroke android:width="@dimen/border" android:color="@color/transparent_light_yoni_black" />
+                    <solid android:color="@color/transparent_pressed" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_focused="true">
+        <layer-list>
+            <item android:left="-1.0px" android:right="-1.0px" android:bottom="-1.0px">
+                <shape>
+                    <stroke android:width="@dimen/border" android:color="@color/transparent_light_yoni_black" />
+                    <solid android:color="@color/transparent_pressed" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_selected="true">
+        <layer-list>
+            <item android:left="-1.0px" android:right="-1.0px" android:bottom="-1.0px">
+                <shape>
+                    <stroke android:width="@dimen/border" android:color="@color/transparent_light_yoni_black" />
+                    <solid android:color="@color/transparent_pressed" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:left="-1.0px" android:right="-1.0px" android:bottom="-1.0px">
+                <shape>
+                    <stroke android:width="@dimen/border" android:color="@color/transparent_light_yoni_black" />
+                    <solid android:color="@color/transparent" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

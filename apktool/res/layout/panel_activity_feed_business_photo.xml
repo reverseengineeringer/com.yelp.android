@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/selector_white_rect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/dark_divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include layout="@layout/panel_activity_feed_user_profile_segment" />
+    <include layout="@layout/panel_activity_feed_business_segment" />
+    <include layout="@layout/panel_activity_feed_business_photo_segment" />
+    <View android:background="@drawable/dark_divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

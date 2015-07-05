@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false" android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <item yelp:state_top="true" yelp:state_bottom="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="@dimen/separator_line_width" android:color="@color/gray_stroke" />
+                </shape>
+            </item>
+            <item android:top="@dimen/separator_line_width" android:bottom="@dimen/separator_line_width">
+                <shape>
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item yelp:state_top="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="@dimen/separator_line_width" android:color="@color/gray_stroke" />
+                    <padding android:top="@dimen/separator_line_width" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+            <item android:left="@dimen/default_base_gap_size" android:right="@dimen/default_base_gap_size">
+                <shape>
+                    <solid android:color="@color/gray_light_silver_divider" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/separator_line_width">
+                <shape>
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item yelp:state_bottom="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="@dimen/separator_line_width" android:color="@color/gray_stroke" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/separator_line_width">
+                <shape>
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+            <item android:left="@dimen/default_base_gap_size" android:right="@dimen/default_base_gap_size">
+                <shape>
+                    <stroke android:width="@dimen/separator_line_width" android:color="@color/gray_light_silver_divider" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/separator_line_width">
+                <shape>
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

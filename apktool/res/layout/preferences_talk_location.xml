@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge yelp:preferenceTitleText="@string/notifications"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.activities.settings.LocationPreference android:id="@id/talk_location_setting" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/talk_city" yelp:preferenceSubtitleText="@string/talk_city_blurb" yelp:preferenceKey="@string/key_talk_location" />
+    <com.yelp.android.ui.activities.settings.PreferenceToggleView android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:preferenceTitleText="@string/lock_talk_location" yelp:preferenceSubtitleText="@string/talk_location_lock_blurb" yelp:preferenceKey="@string/key_talk_location_lock" yelp:preferenceRequireLogin="false" />
+</merge>

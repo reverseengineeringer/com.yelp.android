@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/dlg_photocaption_llMain" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/photo" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginTop="?baseGapSize" android:contentDescription="@null" />
+            <EditText android:id="@id/caption" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize" android:hint="@string/dlg_add_photo_caption_hint" android:singleLine="true" android:inputType="textAutoCorrect|textCapSentences" android:imeOptions="actionDone" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:id="@id/primary_photo" android:paddingLeft="?leftGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?rightGapSize" android:paddingBottom="?baseGapSize" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <CheckBox android:id="@id/checkbox" android:background="@drawable/btn_check" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+        <TextView android:id="@id/check_box_text" android:paddingLeft="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/make_primary_photo" />
+    </LinearLayout>
+</LinearLayout>

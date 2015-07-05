@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/search_annotations" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/search_actions" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" />
+</LinearLayout>

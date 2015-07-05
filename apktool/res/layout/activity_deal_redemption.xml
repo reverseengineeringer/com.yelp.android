@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/code_bar" android:background="@drawable/yellowish_background" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+        <TextView android:textSize="22.0sp" android:id="@id/code_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" android:text="@string/redemption_code_bar" android:layout_alignParentLeft="true" />
+        <TextView android:textSize="22.0sp" android:textColor="@color/red" android:id="@id/code" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/code_text" />
+        <TextView android:textSize="6.0pt" android:id="@id/code_expiration" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/code_text" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/mark_used_holder" android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <Button android:gravity="center" android:id="@id/mark_used" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/mark_deal_as_used" style="?submitButtonStyle" />
+    </FrameLayout>
+    <ListView android:id="@id/deal_list" android:paddingLeft="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:dividerHeight="0.0dip" android:choiceMode="none" android:layout_above="@id/mark_used_holder" android:layout_below="@id/code_bar" />
+    <ImageView android:id="@id/stamp_image" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/offer_stamp" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:contentDescription="@string/offer_redeemed" />
+</RelativeLayout>

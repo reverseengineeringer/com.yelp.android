@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/business" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell">
+        <include layout="@layout/panel_event_business" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+    <com.yelp.android.ui.map.MapSpannableLinearLayout android:id="@id/map_cell" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/address" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell">
+        <ImageView android:id="@id/mapIcon" android:layout_width="?passportUserPhotoSize" android:layout_height="?passportUserPhotoSize" android:layout_marginRight="?baseGapSize" android:src="@drawable/map_cell_icon" android:scaleType="centerInside" android:layout_centerVertical="true" android:contentDescription="@null" />
+        <TextView android:textAppearance="@style/LargeText" android:id="@id/address_first_line" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/mapIcon" />
+        <TextView android:textAppearance="@style/LargeLightText" android:id="@id/address_second_line" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/address_first_line" android:layout_alignLeft="@id/address_first_line" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+</com.yelp.android.ui.widgets.WidgetSpan>

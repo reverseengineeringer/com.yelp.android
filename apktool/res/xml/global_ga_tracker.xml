@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ga_trackingId">UA-30501-40</string>
+    <string name="ga_logLevel">verbose</string>
+</resources>

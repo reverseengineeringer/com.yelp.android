@@ -1,0 +1,292 @@
+package android.support.v7.widget;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+class StaggeredGridLayoutManager$LazySpanLookup
+{
+  int[] a;
+  List<StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem> b;
+  
+  private void c(int paramInt1, int paramInt2)
+  {
+    if (b == null) {
+      return;
+    }
+    int i = b.size() - 1;
+    label20:
+    StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem;
+    if (i >= 0)
+    {
+      localFullSpanItem = (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)b.get(i);
+      if (mPosition >= paramInt1) {
+        break label55;
+      }
+    }
+    for (;;)
+    {
+      i -= 1;
+      break label20;
+      break;
+      label55:
+      if (mPosition < paramInt1 + paramInt2) {
+        b.remove(i);
+      } else {
+        mPosition -= paramInt2;
+      }
+    }
+  }
+  
+  private void d(int paramInt1, int paramInt2)
+  {
+    if (b == null) {
+      return;
+    }
+    int i = b.size() - 1;
+    label20:
+    StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem;
+    if (i >= 0)
+    {
+      localFullSpanItem = (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)b.get(i);
+      if (mPosition >= paramInt1) {
+        break label55;
+      }
+    }
+    for (;;)
+    {
+      i -= 1;
+      break label20;
+      break;
+      label55:
+      mPosition += paramInt2;
+    }
+  }
+  
+  private int g(int paramInt)
+  {
+    if (b == null) {
+      return -1;
+    }
+    StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem = f(paramInt);
+    if (localFullSpanItem != null) {
+      b.remove(localFullSpanItem);
+    }
+    int j = b.size();
+    int i = 0;
+    if (i < j) {
+      if (b.get(i)).mPosition < paramInt) {}
+    }
+    for (;;)
+    {
+      if (i != -1)
+      {
+        localFullSpanItem = (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)b.get(i);
+        b.remove(i);
+        return mPosition;
+        i += 1;
+        break;
+      }
+      return -1;
+      i = -1;
+    }
+  }
+  
+  int a(int paramInt)
+  {
+    if (b != null)
+    {
+      int i = b.size() - 1;
+      while (i >= 0)
+      {
+        if (b.get(i)).mPosition >= paramInt) {
+          b.remove(i);
+        }
+        i -= 1;
+      }
+    }
+    return b(paramInt);
+  }
+  
+  public StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem a(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean)
+  {
+    Object localObject;
+    if (b == null)
+    {
+      localObject = null;
+      return (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)localObject;
+    }
+    int j = b.size();
+    int i = 0;
+    for (;;)
+    {
+      if (i >= j) {
+        break label117;
+      }
+      StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem = (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)b.get(i);
+      if (mPosition >= paramInt2) {
+        return null;
+      }
+      if (mPosition >= paramInt1)
+      {
+        localObject = localFullSpanItem;
+        if (paramInt3 == 0) {
+          break;
+        }
+        localObject = localFullSpanItem;
+        if (mGapDir == paramInt3) {
+          break;
+        }
+        if (paramBoolean)
+        {
+          localObject = localFullSpanItem;
+          if (mHasUnwantedGapAfter) {
+            break;
+          }
+        }
+      }
+      i += 1;
+    }
+    label117:
+    return null;
+  }
+  
+  void a()
+  {
+    if (a != null) {
+      Arrays.fill(a, -1);
+    }
+    b = null;
+  }
+  
+  void a(int paramInt1, int paramInt2)
+  {
+    if ((a == null) || (paramInt1 >= a.length)) {
+      return;
+    }
+    e(paramInt1 + paramInt2);
+    System.arraycopy(a, paramInt1 + paramInt2, a, paramInt1, a.length - paramInt1 - paramInt2);
+    Arrays.fill(a, a.length - paramInt2, a.length, -1);
+    c(paramInt1, paramInt2);
+  }
+  
+  void a(int paramInt, db paramdb)
+  {
+    e(paramInt);
+    a[paramInt] = d;
+  }
+  
+  public void a(StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem paramFullSpanItem)
+  {
+    if (b == null) {
+      b = new ArrayList();
+    }
+    int j = b.size();
+    int i = 0;
+    while (i < j)
+    {
+      StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem = (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)b.get(i);
+      if (mPosition == mPosition) {
+        b.remove(i);
+      }
+      if (mPosition >= mPosition)
+      {
+        b.add(i, paramFullSpanItem);
+        return;
+      }
+      i += 1;
+    }
+    b.add(paramFullSpanItem);
+  }
+  
+  int b(int paramInt)
+  {
+    if (a == null) {}
+    while (paramInt >= a.length) {
+      return -1;
+    }
+    int i = g(paramInt);
+    if (i == -1)
+    {
+      Arrays.fill(a, paramInt, a.length, -1);
+      return a.length;
+    }
+    Arrays.fill(a, paramInt, i + 1, -1);
+    return i + 1;
+  }
+  
+  void b(int paramInt1, int paramInt2)
+  {
+    if ((a == null) || (paramInt1 >= a.length)) {
+      return;
+    }
+    e(paramInt1 + paramInt2);
+    System.arraycopy(a, paramInt1, a, paramInt1 + paramInt2, a.length - paramInt1 - paramInt2);
+    Arrays.fill(a, paramInt1, paramInt1 + paramInt2, -1);
+    d(paramInt1, paramInt2);
+  }
+  
+  int c(int paramInt)
+  {
+    if ((a == null) || (paramInt >= a.length)) {
+      return -1;
+    }
+    return a[paramInt];
+  }
+  
+  int d(int paramInt)
+  {
+    int i = a.length;
+    while (i <= paramInt) {
+      i *= 2;
+    }
+    return i;
+  }
+  
+  void e(int paramInt)
+  {
+    if (a == null)
+    {
+      a = new int[Math.max(paramInt, 10) + 1];
+      Arrays.fill(a, -1);
+    }
+    while (paramInt < a.length) {
+      return;
+    }
+    int[] arrayOfInt = a;
+    a = new int[d(paramInt)];
+    System.arraycopy(arrayOfInt, 0, a, 0, arrayOfInt.length);
+    Arrays.fill(a, arrayOfInt.length, a.length, -1);
+  }
+  
+  public StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem f(int paramInt)
+  {
+    Object localObject;
+    if (b == null)
+    {
+      localObject = null;
+      return (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)localObject;
+    }
+    int i = b.size() - 1;
+    for (;;)
+    {
+      if (i < 0) {
+        break label61;
+      }
+      StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem = (StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)b.get(i);
+      localObject = localFullSpanItem;
+      if (mPosition == paramInt) {
+        break;
+      }
+      i -= 1;
+    }
+    label61:
+    return null;
+  }
+}
+
+/* Location:
+ * Qualified Name:     android.support.v7.widget.StaggeredGridLayoutManager.LazySpanLookup
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

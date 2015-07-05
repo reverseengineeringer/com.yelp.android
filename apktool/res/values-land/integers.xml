@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="register_complete_sign_horizontal_left_weight">1</integer>
+    <integer name="register_complete_sign_horizontal_middle_weight">5</integer>
+    <integer name="register_complete_sign_horizontal_right_weight">1</integer>
+    <integer name="register_complete_sign_vertical_bottom_weight">11</integer>
+    <integer name="register_complete_sign_vertical_middle_weight">21</integer>
+    <integer name="register_complete_sign_vertical_top_weight">1</integer>
+</resources>

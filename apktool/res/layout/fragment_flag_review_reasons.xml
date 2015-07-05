@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:scrollbarStyle="insideOverlay" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:background="@null" android:text="@string/read_before_reporting" style="?minorListSeparatorTextViewStyle" />
+        <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/read_before_flagging" android:background="@drawable/selector_white_rect_inactive_default_states" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="?sublistCell" />
+        <TextView android:background="@null" android:text="@string/whats_the_problem" style="?minorListSeparatorTextViewStyle" />
+        <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_false_information" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_contains_false_information" style="@style/Sublist.FullBleed.SpannedTextView" />
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_affiliated" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_was_posted_by_someone_affiliated" style="@style/Sublist.FullBleed.SpannedTextView" />
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_competitor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_was_posted_by_competitor" style="@style/Sublist.FullBleed.SpannedTextView" />
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_threats" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_contains_threats_or_lewdness" style="@style/Sublist.FullBleed.SpannedTextView" />
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_consumer_experience" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_doesnt_describe_a_personal_consumer_experience" style="@style/Sublist.FullBleed.SpannedTextView" />
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_privacy_standards" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_violates_yelps_privacy_standards" style="@style/Sublist.FullBleed.SpannedTextView" />
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_promotional_material" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_contains_promotional_material" style="@style/Sublist.FullBleed.SpannedTextView" />
+            <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_wrong_business" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/its_for_the_wrong_business" style="@style/Sublist.FullBleed.SpannedTextView" />
+        </com.yelp.android.ui.widgets.WidgetSpan>
+    </LinearLayout>
+</ScrollView>

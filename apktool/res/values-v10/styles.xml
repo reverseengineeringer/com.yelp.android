@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:textAppearance">@style/HeadlineText</item>
+        <item name="android:layout_marginLeft">?baseGapSize</item>
+        <item name="android:minHeight">@dimen/clickable_size</item>
+    </style>
+    <style name="Widget.ListView.NoScrollCache" parent="@android:style/Widget.ListView">
+        <item name="android:scrollingCache">false</item>
+        <item name="android:overScrollFooter">@null</item>
+    </style>
+</resources>

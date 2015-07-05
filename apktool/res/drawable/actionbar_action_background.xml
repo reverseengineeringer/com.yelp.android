@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <gradient android:startColor="@color/transparent_actionbar_menu_item_selected_gradient_start" android:endColor="@color/transparent_actionbar_menu_item_selected_gradient_start" android:angle="@integer/gradient_start_top" />
+        </shape>
+    </item>
+</selector>

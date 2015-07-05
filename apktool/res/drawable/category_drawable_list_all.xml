@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:opacity="opaque"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/restaurants_icon" />
+    <item android:drawable="@drawable/bars_icon" />
+    <item android:drawable="@drawable/shopping_icon" />
+    <item android:drawable="@drawable/food_icon" />
+    <item android:drawable="@drawable/health_and_medical_icon" />
+    <item android:drawable="@drawable/beauty_and_spas_icon" />
+    <item android:drawable="@drawable/home_services_icon" />
+    <item android:drawable="@drawable/local_services_icon" />
+    <item android:drawable="@drawable/event_planning_and_services_icon" />
+    <item android:drawable="@drawable/arts_and_entertainment_icon" />
+    <item android:drawable="@drawable/active_life_icon" />
+    <item android:drawable="@drawable/professional_services_icon" />
+    <item android:drawable="@drawable/automotive_icon" />
+    <item android:drawable="@drawable/hotels_and_travel_icon" />
+    <item android:drawable="@drawable/education_icon" />
+    <item android:drawable="@drawable/real_estate_icon" />
+    <item android:drawable="@drawable/pets_icon" />
+    <item android:drawable="@drawable/financial_services_icon" />
+    <item android:drawable="@drawable/local_flavor_icon" />
+    <item android:drawable="@drawable/public_services_icon" />
+    <item android:drawable="@drawable/mass_media_icon" />
+    <item android:drawable="@drawable/religious_organizations_icon" />
+</layer-list>

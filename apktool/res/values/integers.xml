@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="abc_config_activityDefaultDur">220</integer>
+    <integer name="abc_config_activityShortDur">150</integer>
+    <integer name="abc_max_action_buttons">2</integer>
+    <integer name="alpha_faded">40</integer>
+    <integer name="alpha_opaque">255</integer>
+    <integer name="animation_duration_long">500</integer>
+    <integer name="animation_duration_medium">300</integer>
+    <integer name="animation_duration_medium_long">400</integer>
+    <integer name="animation_duration_medium_short">250</integer>
+    <integer name="animation_duration_short">100</integer>
+    <integer name="animation_duration_tiny">50</integer>
+    <integer name="bizpage_ad_height">50</integer>
+    <integer name="bizpage_ad_width">300</integer>
+    <integer name="bizpage_ad_width_wide">320</integer>
+    <item type="integer" name="check_in_comment_text_length">@integer/default_comment_text_length</item>
+    <integer name="comment_to_twitter_length">85</integer>
+    <integer name="default_comment_text_length">500</integer>
+    <integer name="default_edittext_lines">3</integer>
+    <integer name="google_play_services_version">6587000</integer>
+    <integer name="gradient_start_bottom">90</integer>
+    <integer name="gradient_start_top">270</integer>
+    <integer name="max_edittext_lines">5</integer>
+    <integer name="max_talk_post_length">5000</integer>
+    <integer name="photo_caption_length">128</integer>
+    <integer name="register_complete_sign_horizontal_left_weight">1</integer>
+    <integer name="register_complete_sign_horizontal_middle_weight">5</integer>
+    <integer name="register_complete_sign_horizontal_right_weight">1</integer>
+    <integer name="register_complete_sign_vertical_bottom_weight">49</integer>
+    <integer name="register_complete_sign_vertical_middle_weight">50</integer>
+    <integer name="register_complete_sign_vertical_top_weight">1</integer>
+    <integer name="sign_button_bottom_weight">1</integer>
+    <integer name="sign_button_top_weight">5</integer>
+    <integer name="sign_vertical_bottom_weight">2</integer>
+    <integer name="sign_vertical_top_weight">1</integer>
+    <integer name="talk_location_button_gradient_angle">90</integer>
+    <item type="integer" name="tip_text_length">@integer/default_comment_text_length</item>
+</resources>

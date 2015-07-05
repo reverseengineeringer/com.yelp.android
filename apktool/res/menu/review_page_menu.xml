@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/edit_review_from_review_page" android:visible="false" android:title="@string/edit_review" yelp:showAsAction="never" />
+    <item android:id="@id/update_review_from_review_page" android:visible="false" android:title="@string/write_an_update" yelp:showAsAction="never" />
+    <item android:id="@id/business" android:visible="false" android:title="@string/nav_business" yelp:showAsAction="ifRoom" />
+    <item android:id="@id/flag_review_from_review_page" android:title="@string/report_review" yelp:showAsAction="never" />
+</menu>

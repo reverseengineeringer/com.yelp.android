@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize">
+        <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/find_friends_on_facebook" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/find_on_facebook" android:drawableLeft="@drawable/find_friends_facebook" style="@style/Sublist.FullBleed.SpannedTextView" />
+        <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/find_friends_in_contacts" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/find_in_your_contacts" android:drawableLeft="@drawable/find_friends_contacts" style="@style/Sublist.FullBleed.SpannedTextView" />
+    </com.yelp.android.ui.widgets.WidgetSpan>
+    <TextView android:textAppearance="@style/SmallLightText" android:gravity="center" android:id="@id/find_friends_dont_worry" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="?largeGapSize" android:text="@string/find_friends_dont_worry" />
+</LinearLayout>

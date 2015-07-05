@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/image_container" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/biz_photo" android:layout_width="fill_parent" android:layout_height="@dimen/single_photo_height" android:scaleType="centerCrop" android:contentDescription="@null" />
+    <com.yelp.android.ui.activities.photoviewer.PhotoChrome android:id="@id/photo_chrome" android:paddingTop="3.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:weightSum="2.0">
+        <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/biz_photo_1" android:background="@drawable/gray_rounded_rect" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="165.0dip" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_small_gap_size" android:src="@drawable/picture_frame" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/biz_photo_2" android:background="@drawable/gray_rounded_rect" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="165.0dip" android:layout_marginLeft="@dimen/default_small_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:src="@drawable/picture_frame" android:scaleType="centerCrop" android:layout_weight="1.0" />
+    </LinearLayout>
+    <com.yelp.android.ui.util.DynamicImageView android:layout_gravity="center_vertical" android:id="@id/photos_list" android:layout_width="fill_parent" android:layout_height="130.0dip" />
+</FrameLayout>

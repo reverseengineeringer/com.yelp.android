@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="@dimen/sign_border" android:right="@dimen/sign_border">
+        <shape>
+            <solid android:color="@color/white_for_purple_background" />
+        </shape>
+    </item>
+    <item android:top="@dimen/sign_offset_lefthand">
+        <bitmap android:gravity="center|left" android:src="@drawable/elite_prompt_dude_handleft" />
+    </item>
+    <item android:top="@dimen/sign_offset_righthand">
+        <bitmap android:gravity="center|right" android:src="@drawable/elite_prompt_dude_handright" />
+    </item>
+</layer-list>

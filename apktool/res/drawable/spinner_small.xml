@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="50" android:drawable="@drawable/small_spinner_000" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_001" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_002" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_003" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_004" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_005" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_006" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_007" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_008" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_009" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_010" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_011" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_012" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_013" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_014" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_015" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_016" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_017" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_018" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_019" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_020" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_021" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_022" />
+    <item android:duration="50" android:drawable="@drawable/small_spinner_023" />
+</animation-list>

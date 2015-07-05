@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/black" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="black #000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/black_beluga" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="black_beluga #1A1A1A" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/black_yoni" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="black_yoni #222222" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_castle_rock" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_castle_rock #241e1e" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/black_gradient_end" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="black_gradient_end #272727" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_espresso_bean" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_espresso_bean #2d2625" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/black_gradient_start" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="black_gradient_start #313131" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_dark" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_dark #333" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_cool_magma" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_cool_magma #362e2d" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_jacobean_ebony" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_jacobean_ebony #3f3f3f" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/black_licorice" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="black_licorice #4d4d4d" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_earl" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_earl #5b5b5b" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_selected_accent" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_selected_accent #717160" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_forged_iron" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_forged_iron #5e5857" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_deep_cavern" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_deep_cavern #645c5c" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_yoni_light_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_yoni_light_text #666662" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_slate_stone" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_slate_stone #6E6E6E" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_businesspage_button_inactive_gradient_end" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_businesspage_button_inactive_gradient_end #FAFAF8" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/hint_foreground_dark" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="hint_foreground_dark #808080" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/hint_foreground_light" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="hint_foreground_light #808080" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_dark_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_dark_stroke #81827f" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_mid" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_mid #888" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_stroke_depressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_stroke_depressed #989898" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_faint" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_faint #999999" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_list_divider" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_list_divider #9A9A85" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_stroke #BDBDBD" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_bubble_border" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_bubble_border #b1b1b1" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_yoni" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_yoni #b3b3b3" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_outer_frame_photo_upload" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_outer_frame_photo_upload #BBBBBB" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_mid_light" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_mid_light #CCC" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_light_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_light_stroke #CBCBCA" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_silver_divider" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_silver_divider #D4D4D4" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_badge_border" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_badge_border #D8D8D8" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_silver_alert_border" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_silver_alert_border #E0E0E0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_button_bar_pressed_color_bottom" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_button_bar_pressed_color_bottom #E5E5E5" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_light_silver_divider" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_light_silver_divider #E6E6E6" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_cell" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_cell #EAEBE7" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_light" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_light #EEE" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/white_for_purple_background" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="white_for_purple_background #EEEBEF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/white_dirty_snow" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="white_dirty_snow #F4F5F0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/white_button_top_pressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="white_button_top_pressed #CACCC4" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/white_button_bottom_pressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="white_button_bottom_pressed #E4E5E0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/white" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="white #fff" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_light" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_light #f5f0f0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red #DC1600" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_actionbar_gradient_start" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_actionbar_gradient_start #E31700" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_actionbar_gradient_end" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_actionbar_gradient_end #CF1806" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_etching" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_etching #872729" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_text_dark" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_text_dark #B70000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_fire_engine" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_fire_engine #C80006" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_vesuvius_glow" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_vesuvius_glow #CC1604" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_faint" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_faint #ECA7A3" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_bulls_eye" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_bulls_eye #E02215" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_gplus_sign_in_button_unpressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_gplus_sign_in_button_unpressed #dd4b39" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_gplus_sign_in_button_pressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_gplus_sign_in_button_pressed #ba3e33" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_button_top" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_button_top #EE3214" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_button_top_pressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_button_top_pressed #B11606" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_button_bottom_pressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_button_bottom_pressed #BD2511" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_yelp" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_yelp #ca1406" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_chili" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_chili #ca2812" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_apple" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_apple #e12e13" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_lava" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_lava #da3417" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_orange" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_orange #ea3c19" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_shirley_temple" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_shirley_temple #ce1505" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_midnight_bonfire" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_midnight_bonfire #bd1304" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_yelp_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_yelp_stroke #690C03" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_ruby_ring" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_ruby_ring #8A1005" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_aussie_coral" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_aussie_coral #ea654a" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/red_caribbean_coral" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="red_caribbean_coral #db5f46" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_generic_royalty_award_background" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_generic_royalty_award_background #C52B1C" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_text #DD5114" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_announcement" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_announcement #FB9037" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_one_star" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_one_star #ae6d15" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_two_stars" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_two_stars #c99a1c" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_three_stars" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_three_stars #ec770f" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_four_stars" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_four_stars #ec3b07" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_five_stars" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_five_stars #be070a" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_nav_add_review" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_nav_add_review #F86811" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_autumn_arrival" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_autumn_arrival #d56215" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/orange_october_kingdom" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="orange_october_kingdom #fa7319" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_alert" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_alert #FFFFE6" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_ad" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_ad #EDC602" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_alert_gradient_unpressed_start" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_alert_gradient_unpressed_start #FFE389" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_alert_gradient_unpressed_end" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_alert_gradient_unpressed_end #FFCE59" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_regular_checkin" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_regular_checkin #E49b0E" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_topuser_checkin" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_topuser_checkin #D4A341" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_king_background" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_king_background #FFE394" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_gradient_start" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_gradient_start #F0C83E" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_gradient_end" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_gradient_end #DDAA1C" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_top_regular" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_top_regular #C78C2E" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_etching" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_etching #B88E20" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/yellow_gold_star" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="yellow_gold_star #D69D05" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_light" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_light #f0f5f0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_outline" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_outline #3cb52e" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_accept_outline" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_accept_outline #579418" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_accept_bottom_gradient_inactive" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_accept_bottom_gradient_inactive #66a621" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_accept_top_gradient_inactive" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_accept_top_gradient_inactive #79c727" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_accept_bottom_gradient_active" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_accept_bottom_gradient_active #a3c979" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_accept_top_gradient_active" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_accept_top_gradient_active #aedd7d" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_money" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_money #093" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_chopped_chive" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_chopped_chive #1f7a31" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_parsley_sprig" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_parsley_sprig #258f3a" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_insight" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_insight #4B6A1E" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_shamrock" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_shamrock #00B31A" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_deal_highlight" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_deal_highlight #5eac0f" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_redeem_deal_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_redeem_deal_stroke #74B82D" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_redeem_deal_top" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_redeem_deal_top #7BCB29" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_redeem_deal_bottom" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_redeem_deal_bottom #76C228" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_redeem_deal_pressed_top" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_redeem_deal_pressed_top #60901F" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_redeem_deal_pressed_bottom" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_redeem_deal_pressed_bottom #7ACA29" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_redeem_deal_shadow" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_redeem_deal_shadow #91B171" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_tart_apple" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_tart_apple #79c727" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_bamboo_leaf" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_bamboo_leaf #66a621" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_hidden_meadow" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_hidden_meadow #8cd63e" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_sweet_midori" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_sweet_midori #80c734" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_dill_pickle" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_dill_pickle #579418" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_cool_aloe" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_cool_aloe #77c527" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/green_lady_luck" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="green_lady_luck #538a1b" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_bubbling_baron" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_bubbling_baron #ACE5E7" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_first_to_tip" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_first_to_tip #81C0C4" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_bored_wisps" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_bored_wisps #DEF4F5" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_selected" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_selected #ced8e9" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_fb_signup_bottom_gradient_inactive" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_fb_signup_bottom_gradient_inactive #3f5798" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_fb_signup_top_gradient_inactive" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_fb_signup_top_gradient_inactive #4963aa" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_fb_signup_outline" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_fb_signup_outline #324374" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_fb_signup_bottom_gradient_active" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_fb_signup_bottom_gradient_active #4e68b0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_fb_signup_top_gradient_active" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_fb_signup_top_gradient_active #5a75c0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_sky" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_sky #0097ec" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_light_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_light_text #5555FF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_text_hint" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_text_hint #3A98D8" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_baron_background" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_baron_background #4F71BD" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_text_clicked" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_text_clicked #000088" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_checkinoffer" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_checkinoffer #0060B4" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_checkin_offer_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_checkin_offer_stroke #215BB3" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_checkin_offer_top" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_checkin_offer_top #2868CE" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_checkin_offer_pressed_top" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_checkin_offer_pressed_top #154181" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_checkin_offer_pressed_bottom" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_checkin_offer_pressed_bottom #2767CC" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_checkin_offer_shadow" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_checkin_offer_shadow #00539C" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_seaweed_surprise" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_seaweed_surprise #195F61" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_seaweed_surprise_light" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_seaweed_surprise_light #219CA0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_cloudy_day" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_cloudy_day #B9E5EF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_quiet_storm" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_quiet_storm #5C7E85" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_restless_sea" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_restless_sea #2C4044" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_velvet_evening" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_velvet_evening #A2C9D2" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_link" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_link #4d5f9a" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_nav_check_in" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_nav_check_in #0089D8" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/purple" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="purple #4D3B56" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/purple_dark" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="purple_dark #3B2C45" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/purple_nav_add_photo_video" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="purple_nav_add_photo_video #B737CE" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/white_cream" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="white_cream #F5F5F1" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_gray" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_gray #4FFF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_gray_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_gray_stroke #20BDBDBD" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_light_yoni_black" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_light_yoni_black #66212121" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_yoni_black" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_yoni_black #AA212121" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_drop_shadow_end" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_drop_shadow_end #00CCCCCC" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_actionbar_menu_item_selected_gradient_start" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_actionbar_menu_item_selected_gradient_start #20000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_gray_divider" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_gray_divider #4CD4D4D4" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_drop_shadow_start" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_drop_shadow_start #90808080" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_review_arrow_background" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_review_arrow_background #E0E3E3E3" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_red_faint" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_red_faint #66ECA7A3" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent #0000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_pressed" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_pressed #19000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_pressed_light" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_pressed_light #10000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_green_button_text_shadow_disabled" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_green_button_text_shadow_disabled #22000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_black" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_black #44000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_green_button_text_shadow_default" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_green_button_text_shadow_default #55000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_fading_photo_top" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_fading_photo_top #66000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_fading_photo_bottom" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_fading_photo_bottom #b5000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_talk_button_stroke" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_talk_button_stroke #BB000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_map_callout_bg" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_map_callout_bg #C0000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_black_background" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_black_background #dd000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_tint" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_tint #99000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_map_button_gradient_start" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_map_button_gradient_start #AAEFEFEF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_map_button_gradient_end" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_map_button_gradient_end #AAFFFFFF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/transparent_white" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="transparent_white #E8FFFFFF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/white_on_black" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="white_on_black #FFFFFF" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_on_black" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_on_black @color/gray_faint" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/shadow_for_black_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="shadow_for_black_text #80ffffff" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/shadow_for_white_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="shadow_for_white_text #FF000000" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/list_spacer" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="list_spacer #FFCCCCCC" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_refresh_one" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_refresh_one #878785" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_refresh_two" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_refresh_two #afafac" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_refresh_three" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_refresh_three #c4c4c1" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/gray_refresh_four" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="gray_refresh_four #d6d6d3" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/useful_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="useful_text #ed9126" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/funny_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="funny_text #9ea843" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/cool_text" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="cool_text #3e68a4" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/black_coal" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="black_coal #282739" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <View android:background="@color/blue_fog" android:layout_width="@dimen/default_huge_gap_size" android:layout_height="fill_parent" />
+            <TextView android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="blue_fog #4E5D6B" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

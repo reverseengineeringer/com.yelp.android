@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/header" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/photo_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/photo" android:layout_width="fill_parent" android:layout_height="230.0dip" android:scaleType="centerCrop" android:contentDescription="@null" />
+        <View android:background="@drawable/weekly_photo_gradient_bottom" android:layout_width="fill_parent" android:layout_height="230.0dip" />
+    </FrameLayout>
+    <TextView android:id="@id/weekly_title" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignBottom="@id/photo_container" style="@style/HugeWhiteText" />
+    <RelativeLayout android:id="@id/weekly_header" android:background="@color/white" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/photo_container">
+        <TextView android:textStyle="normal" android:id="@id/weekly_yelp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/the_weekly_yelp" android:layout_toLeftOf="@id/weekly_date" android:layout_alignParentLeft="true" style="@style/TitleText" />
+        <TextView android:id="@id/weekly_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBottom="@id/weekly_yelp" android:layout_alignParentRight="true" style="@style/SubtitleGrayText" />
+        <TextView android:id="@id/weekly_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/weekly_yelp" style="@style/SubtitleGrayText" />
+    </RelativeLayout>
+    <TextView android:id="@id/weekly_summary" android:background="@color/white" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/weekly_header" style="@style/LargeText" />
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_below="@id/weekly_summary" />
+</RelativeLayout>

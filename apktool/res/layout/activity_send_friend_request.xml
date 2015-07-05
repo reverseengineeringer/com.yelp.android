@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <requestFocus />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/user_badge" android:background="@drawable/gray_section_background" android:paddingLeft="?baseGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/panel_passport_short" />
+        </RelativeLayout>
+        <TextView android:id="@id/greeting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:text="@string/friend_request_greeting" />
+        <EditText android:id="@id/message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:text="@string/friend_request_base_message" android:maxLines="4" android:selectAllOnFocus="true" android:inputType="textAutoCorrect|textCapSentences|textImeMultiLine|textMultiLine|textShortMessage" android:imeOptions="flagNoEnterAction|flagNoExtractUi" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:text="@string/friend_request_informational_text" />
+        <TextView android:id="@id/salutation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:text="@string/friend_request_salutation" />
+    </LinearLayout>
+</ScrollView>

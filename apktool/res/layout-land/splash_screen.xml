@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/mobile_splash_bg_landscape" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false">
+        <RelativeLayout android:gravity="center" android:id="@id/logo_image" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:id="@id/logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:src="@drawable/logo_for_splash" android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+        <include android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" layout="@layout/panel_splash_buttons" />
+    </LinearLayout>
+</merge>

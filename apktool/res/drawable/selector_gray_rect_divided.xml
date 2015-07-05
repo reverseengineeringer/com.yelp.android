@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false" android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:yelp="http://schemas.android.com/apk/res/com.yelp.android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <padding android:left="@dimen/default_base_gap_size" android:right="@dimen/default_base_gap_size" />
+                    <solid android:color="@color/white_dirty_snow" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/gray_stroke" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/separator_line_width">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/white_dirty_snow" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <padding android:left="@dimen/default_base_gap_size" android:right="@dimen/default_base_gap_size" />
+                    <solid android:color="@color/gray_cell" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/gray_stroke" />
+                </shape>
+            </item>
+            <item android:bottom="@dimen/separator_line_width">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/gray_cell" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

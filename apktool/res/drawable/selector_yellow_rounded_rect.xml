@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:dither="false" android:constantSize="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <item yelp:state_top="true" yelp:state_bottom="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <corners android:radius="@dimen/corner_radius" />
+                    <stroke android:width="1.0dip" android:color="@color/gray_stroke" />
+                    <gradient android:startColor="@color/yellow_alert_gradient_unpressed_start" android:endColor="@color/yellow_alert_gradient_unpressed_end" android:angle="@integer/gradient_start_top" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item yelp:state_top="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="1.0dip" android:color="@color/gray_stroke" />
+                    <corners android:topLeftRadius="@dimen/corner_radius" android:topRightRadius="@dimen/corner_radius" />
+                    <gradient android:startColor="@color/yellow_alert_gradient_unpressed_start" android:endColor="@color/yellow_alert_gradient_unpressed_end" android:angle="@integer/gradient_start_top" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item yelp:state_bottom="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="1.0dip" android:color="@color/gray_stroke" />
+                    <corners android:bottomLeftRadius="@dimen/corner_radius" android:bottomRightRadius="@dimen/corner_radius" />
+                    <gradient android:startColor="@color/yellow_alert_gradient_unpressed_start" android:endColor="@color/yellow_alert_gradient_unpressed_end" android:angle="@integer/gradient_start_top" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="1.0dip" android:color="@color/gray_stroke" />
+                    <gradient android:startColor="@color/yellow_alert_gradient_unpressed_start" android:endColor="@color/yellow_alert_gradient_unpressed_end" android:angle="@integer/gradient_start_top" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

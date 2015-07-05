@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:background="#ffaaaaaa" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="vertical" android:background="@android:color/white" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.yelp.android.ui.widgets.SpannedTextView android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Top" yelp:position="left" style="@style/Sublist.WhiteRoundedRect" />
+                <com.yelp.android.ui.widgets.SpannedTextView android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Middle" yelp:position="middle" style="@style/Sublist.WhiteRoundedRect" />
+                <com.yelp.android.ui.widgets.SpannedTextView android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Bottom" yelp:position="bottom" style="@style/Sublist.WhiteRoundedRect" />
+                <com.yelp.android.ui.widgets.SpannedTextView android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Bottom|Top" yelp:position="bottom|left" style="@style/Sublist.WhiteRoundedRect" />
+            </LinearLayout>
+            <com.yelp.android.ui.widgets.TwoTierButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:checked="true" yelp:label="LABEL" yelp:value="VALUE" yelp:labelIcon="@drawable/btn_check" yelp:position="middle" yelp:checkable="true" />
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Button!" />
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Button!" />
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Button!" />
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Button!" style="?submitButtonStyle" />
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Button!" style="?cancelButtonStyle" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Button!" style="@style/Widget.Button.YoniStyle.Green" />
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Button!" style="@style/Widget.Button.Compliment" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
